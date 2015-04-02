@@ -1,6 +1,5 @@
 
 /**
- * Define objetos Elfo
  * 
  * @author CWI Software
  */
@@ -15,7 +14,7 @@ public class Elfo
     }
     
     /**
-     * Cria objetos Elfo
+     * Cria objetos Elfo !teste commit!
      * 
      * @param umNome Nome que o elfo receberá
      * @param flechas Quantidade inicial de flechas
