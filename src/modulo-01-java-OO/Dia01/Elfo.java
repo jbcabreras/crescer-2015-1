@@ -41,6 +41,14 @@ public class Elfo
         experiencia++;
     }
     
+    public void atiraFlechaOrc(Orc nomeOrc) {
+        //flechas = flechas - 1;
+        flechas--;
+        experiencia++;
+        
+        nomeOrc.perdeVida();
+    }
+    
 //     public void setNome(String novoNome) {
 //         nome = novoNome;
 //     }
