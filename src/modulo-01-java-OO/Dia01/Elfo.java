@@ -51,6 +51,14 @@ public class Elfo
         umOrc.perdeVida();
     }
     
+    public int getFlechas(){
+        return this.flechas;
+    }
+    
+      public String getNome(){
+        return this.nome;
+    }
+    
 //     public void setNome(String novoNome) {
 //         nome = novoNome;
 //     }
