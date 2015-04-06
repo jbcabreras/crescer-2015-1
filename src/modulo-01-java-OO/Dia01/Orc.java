@@ -1,23 +1,34 @@
-
 /**
- * Write a description of class Orc here.
+ * Define objetos do tipo Orc
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author CWI Software
  */
 public class Orc
 {
     private int vida = 110;
+
+    {
+        //vida = 110;
+    }
     
-    public void perdeVida(){
+    /**
+     * Construtor para objetos da classe Orc
+    public Orc()
+    {
+        //vida = 110;
+    }
+    **/
+    
+    /**
+     * Faz o Orc sofrer um ataque.
+     * Atualmente 10 de dano será decrementado.
+     */
+    public void recebeAtaque() {
         this.vida -= 10;
+        // this.vida = this.vida - 10;
     }
     
-    public int getVida(){
+    public int getVida() {
         return this.vida;
-    }
-    
-    public String toString(){
-        return "";
     }
 }

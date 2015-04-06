@@ -1,70 +1,95 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class OrcTest.
+ * A classe de teste OrcTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  (seu nome)
+ * @version (um número de versão ou data)
  */
 public class OrcTest
 {
-   @Test
-   public void orcNasceCom110Vida(){
-       //Arrange = montagem dos dados de teste
-       Orc umOrc;
-       //Act = execucao da acao de testes
-       umOrc = new Orc();
-       //Assert = verificacao se o resultado é o esperado
-       int esperado = 110;
-       int obtido = umOrc.getVida();
-       
-       assertEquals(esperado, obtido);
+    @Test
+    public void orcNasceCom110Vida() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc;
+        // Act - Execução da ação de testes
+        umOrc = new Orc();
+        // Assert - Verificação
+        int esperado = 110;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
     }
     
     @Test
-    public void perde10Vida(){
+    public void orcRecebeAtaqueUmaVez() {
+        // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 100;
+        int resultadoObtido = umOrc.getVida();
         
-        int esperado = 100; 
-        umOrc.perdeVida();
-        
-        int obtido = umOrc.getVida();
-        
-        assertEquals(esperado, obtido);
+        assertEquals(esperado, resultadoObtido);
     }
     
-       @Test
-    public void perde20Vida(){
+    @Test
+    public void orcRecebeAtaqueDuasVezes() {
+        // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 90;
+        int resultadoObtido = umOrc.getVida();
         
-        int esperado = 90; 
-        umOrc.perdeVida();
-        umOrc.perdeVida();
-        
-        int obtido = umOrc.getVida();
-        
-        assertEquals(esperado, obtido);
+        assertEquals(esperado, resultadoObtido);
     }
     
-       @Test
-    public void perde50Vida(){
+    @Test
+    public void orcRecebeAtaqueCincoVezes() {
+        // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 60;
+        int resultadoObtido = umOrc.getVida();
         
-        int esperado = 60; 
-        umOrc.perdeVida();
-        umOrc.perdeVida();
-        umOrc.perdeVida();
-        umOrc.perdeVida();
-        umOrc.perdeVida();
-        
-        int obtido = umOrc.getVida();
-        
-        assertEquals(esperado, obtido);
+        assertEquals(esperado, resultadoObtido);
     }
-   
+    
+    @Test
+    public void orcRecebeAtaqueDozeVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = -10;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
 }

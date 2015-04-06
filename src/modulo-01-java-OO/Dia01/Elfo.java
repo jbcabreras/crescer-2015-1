@@ -28,6 +28,11 @@ public class Elfo
         this.flechas = flechas;
     }
     
+    /**
+     * Cria um elfo informando nome.
+     * 
+     * @param nome Nome a ser dado para o Elfo.
+     */
     public Elfo(String nome) {
         this.nome = nome;
     }
@@ -40,26 +45,25 @@ public class Elfo
 //     }
      /**
      * Atira uma flecha e perde uma unidade.
-     * @param umOrc Nome do orc que vai receber a flechada
+     * 
+     * @param umOrc Orc que receberá uma flechada.
      */
-    
-    public void atiraFlechaOrc(Orc umOrc) {
+    public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        
-        umOrc.perdeVida();
+        umOrc.recebeAtaque();
     }
     
-    public int getFlechas(){
-        return this.flechas;
-    }
-    
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
     
-    public int getXP(){
+    public int getFlechas() {
+        return this.flechas;
+    }
+    
+    public int getExperiencia() {
         return this.experiencia;
     }
     
