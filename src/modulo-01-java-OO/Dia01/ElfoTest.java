@@ -13,8 +13,7 @@ import org.junit.Test;
  */
 public class ElfoTest
 {
-    @Test
-    
+    @Test    
     public void nasceComNome(){
         Elfo umElfo = new Elfo("Teste");
         
@@ -25,6 +24,33 @@ public class ElfoTest
         int flechasO = umElfo.getFlechas();
         
         assertEquals(nomeE, nomeO);
+        assertEquals(flechasE, flechasO);
+    }
+   
+    @Test
+      public void nasceComNomeFlechas(){
+        Elfo umElfo = new Elfo("Teste", 10);
+        
+        String nomeE = "Teste"; 
+        int flechasE = 10;
+        
+        String nomeO = umElfo.getNome();  
+        int flechasO = umElfo.getFlechas();
+        
+        assertEquals(nomeE, nomeO);
+        assertEquals(flechasE, flechasO);
+    }
+    
+    @Test
+      public void atira1Flecha(){
+        Elfo umElfo = new Elfo("Teste", 10);
+        Orc umOrc = new Orc();
+        int flechasE = 9;
+        
+        umElfo.atiraFlechaOrc(umOrc);
+        
+        int flechasO = umElfo.getFlechas();
+        
         assertEquals(flechasE, flechasO);
     }
 }
