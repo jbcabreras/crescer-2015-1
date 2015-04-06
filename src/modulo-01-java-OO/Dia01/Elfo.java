@@ -55,8 +55,12 @@ public class Elfo
         return this.flechas;
     }
     
-      public String getNome(){
+    public String getNome(){
         return this.nome;
+    }
+    
+    public int getXP(){
+        return this.experiencia;
     }
     
 //     public void setNome(String novoNome) {
