@@ -12,4 +12,8 @@ public class Orc
     public void perdeVida(){
         this.vida -= 10;
     }
+    
+    public int getVida(){
+        return this.vida;
+    }
 }
