@@ -16,4 +16,8 @@ public class Orc
     public int getVida(){
         return this.vida;
     }
+    
+    public String toString(){
+        return "";
+    }
 }

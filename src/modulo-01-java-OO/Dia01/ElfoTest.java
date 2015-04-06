@@ -45,12 +45,16 @@ public class ElfoTest
       public void atira1Flecha(){
         Elfo umElfo = new Elfo("Teste", 10);
         Orc umOrc = new Orc();
+        
         int flechasE = 9;
+        int xpE = 1;
         
         umElfo.atiraFlechaOrc(umOrc);
         
         int flechasO = umElfo.getFlechas();
+        int xpO = umElfo.getXP();
         
         assertEquals(flechasE, flechasO);
+        assertEquals(xpE, xpO);
     }
 }
