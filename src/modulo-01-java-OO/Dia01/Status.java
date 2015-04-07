@@ -1,11 +1,10 @@
 
 /**
- * Enumeration class Status - write a description of the enum class here
+ * Status dos personagens
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author CWI Software
  */
 public enum Status
 {
-    vivo, morto, ferido, atacando, fugindo, cacando, dormindo
+    VIVO, MORTO, ATACANDO, FERIDO, FUGINDO, CAÇANDO, DORMINDO;
 }
