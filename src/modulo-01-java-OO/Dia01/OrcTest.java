@@ -16,7 +16,7 @@ public class OrcTest
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
         // Act - Execução da ação de testes
-        umOrc = new Orc();
+        umOrc = new Orc("");
         // Assert - Verificação
         int esperado = 110;
         int resultadoObtido = umOrc.getVida();
@@ -27,7 +27,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueUmaVez() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("");
         // Act
         umOrc.recebeAtaque();
         // Assert - Verificação
@@ -40,7 +40,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueDuasVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -54,7 +54,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueCincoVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -71,7 +71,7 @@ public class OrcTest
     @Test
     public void orcRecebeAtaqueDozeVezes() {
         // Arrange - Montagem dos dados de teste
-        Orc umOrc = new Orc();
+        Orc umOrc = new Orc("");
         // Act
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
@@ -86,7 +86,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = -10;
+        int esperado = 0;
         int resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido);

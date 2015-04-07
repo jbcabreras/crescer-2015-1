@@ -91,7 +91,7 @@ public class ElfoTest
     public void elfoAtiraFlechaEmUmOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas");
-        Orc orc = new Orc();
+        Orc orc = new Orc("");
         // Act
         elfo.atirarFlecha(orc);
         // Assert
@@ -106,7 +106,7 @@ public class ElfoTest
     public void elfoAtiraFlechasDuasVezesNoMesmoOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas");
-        Orc orc = new Orc();
+        Orc orc = new Orc("");
         // Act
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
@@ -122,7 +122,7 @@ public class ElfoTest
     public void elfoAtiraFlechasCincoVezesNoMesmoOrc() {
         // Arrange
         Elfo elfo = new Elfo("Legolas", 4);
-        Orc orc = new Orc();
+        Orc orc = new Orc("");
         // Act
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
