@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Define objetos do tipo Orc
  * 
@@ -8,6 +10,7 @@ public class Orc
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
+    private ArrayList<ItemDoInventario> itensOrc = new ArrayList<ItemDoInventario>();
 
     {
         //vida = 110;
@@ -23,6 +26,18 @@ public class Orc
     }
     
     public Orc() {
+    }
+    
+    public void adicionarItem(ItemDoInventario umItem){
+        this.itensOrc.add(umItem);
+    }
+    
+     public void removeItem(ItemDoInventario umItem){
+        this.itensOrc.remove(umItem);
+    }
+    
+    public int getTotalItem(){
+        return this.itensOrc.size();
     }
     
     /**

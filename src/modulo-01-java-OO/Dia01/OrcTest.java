@@ -170,7 +170,7 @@ public class OrcTest
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "Urukhai";	
+        String esperado = "Urukhai";    
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -183,7 +183,7 @@ public class OrcTest
     public void orcNasceComNomeVazioInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "";	
+        String esperado = "";   
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -196,7 +196,7 @@ public class OrcTest
     public void orcNasceComNomeNuloInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = null;	
+        String esperado = null; 
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -264,6 +264,29 @@ public class OrcTest
         assertEquals(vidaEsperada, orc.getVida());
         assertEquals(statusEsperado, orc.getStatus());
     }
+    
+    @Test
+    public void orcAdicionaItemNaLista(){ 
+        Orc o = new Orc();
+        ItemDoInventario i = new ItemDoInventario("teste", 1);
+        o.adicionarItem(i);
+        
+        int totalItemOrc = 1;
+        
+        assertEquals(totalItemOrc, o.getTotalItem());        
+    } 
+    
+    @Test
+    public void orcRemoveItemNaLista(){ 
+        Orc o = new Orc();
+        ItemDoInventario i = new ItemDoInventario("teste", 1);
+        o.adicionarItem(i);
+        o.removeItem(i);
+        
+        int totalItemOrc = 0;
+        
+        assertEquals(totalItemOrc, o.getTotalItem());        
+    } 
 }
 
 
