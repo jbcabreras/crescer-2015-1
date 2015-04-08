@@ -10,7 +10,7 @@ public class Orc
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
-    private ArrayList<ItemDoInventario> itensOrc = new ArrayList<ItemDoInventario>();
+    private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
 
     {
         //vida = 110;
@@ -26,18 +26,6 @@ public class Orc
     }
     
     public Orc() {
-    }
-    
-    public void adicionarItem(ItemDoInventario umItem){
-        this.itensOrc.add(umItem);
-    }
-    
-     public void removeItem(ItemDoInventario umItem){
-        this.itensOrc.remove(umItem);
-    }
-    
-    public int getTotalItem(){
-        return this.itensOrc.size();
     }
     
     /**
@@ -92,6 +80,28 @@ public class Orc
     
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
+    }
+    
+    public ArrayList<ItemDoInventario> getItens() {
+        return this.itens;
+    }
+    
+    /**
+     * Adiciona um item ao inventário.
+     * 
+     * @param item Item a ser adicionado.
+     */
+    public void adicionarItem(ItemDoInventario item) {
+        this.itens.add(item);
+    }
+
+    /**
+     * Remove o item do inventário do orc.
+     * 
+     * @param item Item a ser perdido do inventário.
+     */
+    public void perderItem(ItemDoInventario item) {
+        this.itens.remove(item);
     }
     
     /**

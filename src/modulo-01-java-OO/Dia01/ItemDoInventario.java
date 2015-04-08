@@ -1,26 +1,29 @@
-
 /**
- * Write a description of class ItemDoInventario here.
+ * Representa um item e sua quantidade em inventário.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author CWI Software
  */
 public class ItemDoInventario
 {
-   private String descricao;
-   private int quantidade;
-   
-   public ItemDoInventario(String umaDescricao, int umaQuantidade){
-       this.descricao = umaDescricao;
-       this.quantidade = umaQuantidade;
+    private String descricao;
+    private int quantidade;
+    
+    /**
+     * Cria um item de inventário com a quantidade e descrição informadas
+     * 
+     * @param quantidade Quantidade de unidades no inventário
+     * @param descricao Descrição do item
+     */
+    public ItemDoInventario(int quantidade, String descricao) {
+        this.quantidade = quantidade;
+        this.descricao = descricao;
     }
     
-   public String getDescricao(){
-           return this.descricao;
+    public String getDescricao() {
+        return this.descricao;
     }
-       
-   public int getQuantidade(){
-           return this.quantidade;
-    } 
-   
+    
+    public int getQuantidade() {
+        return this.quantidade;
+    }
 }
