@@ -105,6 +105,7 @@ public class Orc
         this.itens.remove(item);
     }    
    
+/*    
     public String getDescricoesItens(){
         StringBuilder listaItens = new StringBuilder();
         for(int i = 0; i < itens.size(); i++){
@@ -112,7 +113,7 @@ public class Orc
         }
         return listaItens.toString();
     }
-    
+*/    
     /**
      * Imprime a vida atual do Orc.
      * 
@@ -133,11 +134,11 @@ public class Orc
      * 
      * "Adaga,Escudo,Bracelete”
      */
+    
     public String getDescricoesItens() {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();        
         
-        /*
-         * Utilizando for tradicional         
+         //Utilizando for tradicional         
         int numeroDeItens = this.itens.size();
 
         for (int i = 0; i < numeroDeItens; i++) {
@@ -151,7 +152,10 @@ public class Orc
                 itemAtual.getDescricao() + ","
             );
         }
-        */
+        
+        return builder.toString();
+    }   
+      
        
        // C#
        //foreach (ItemDoInventario item in this.itens) { }
@@ -196,7 +200,7 @@ public class Orc
       }
       */
      
-     int i = 0;
+/*     int i = 0;
      int numeroDeItens = this.itens.size();
      do {
          if (numeroDeItens > 0) {
@@ -214,6 +218,21 @@ public class Orc
      
        return builder.toString();
     }
+*/   
+
+    public ItemDoInventario getItemComMaiorQuantidade(){
+        int maior = 0;
+        ItemDoInventario ItemComMaiorQuantidade = null;
+        
+        for(int i = 0; i < itens.size(); i++){
+            if(itens.get(i).getQuantidade() >= maior){
+                maior = itens.get(i).getQuantidade();
+                ItemComMaiorQuantidade = itens.get(i);
+            }
+        }
+        
+        return ItemComMaiorQuantidade;
+    } 
     
     /**
      * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.

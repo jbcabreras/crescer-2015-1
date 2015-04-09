@@ -169,7 +169,7 @@ public class OrcTest
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "Urukhai";	
+        String esperado = "Urukhai";    
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -182,7 +182,7 @@ public class OrcTest
     public void orcNasceComNomeVazioInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "";	
+        String esperado = "";   
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -195,7 +195,7 @@ public class OrcTest
     public void orcNasceComNomeNuloInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = null;	
+        String esperado = null; 
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -396,6 +396,62 @@ public class OrcTest
         ItemDoInventario lanca = urukhai.getItens().get(1);
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
+    }
+    
+       @Test
+    public void testaItemMaiorQuantidadeNenhumItem(){    
+        Orc o = new Orc();                
+            
+        ItemDoInventario esperado = null;
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+       @Test
+    public void testaItemMaiorQuantidadeCom1Item(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+      
+        o.adicionarItem(i1);
+       
+        ItemDoInventario esperado = i1;
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+       @Test
+    public void testaItemMaiorQuantidade3ItensComQuantidadesIguais(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+        ItemDoInventario i2 = new ItemDoInventario(2, "b");
+        ItemDoInventario i3 = new ItemDoInventario(2, "c");
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        ItemDoInventario esperado = i3;
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void testaItemMaiorQuantidadeCom3ItensComQuantidadesDiferentes(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(1, "a");
+        ItemDoInventario i2 = new ItemDoInventario(3, "b");
+        ItemDoInventario i3 = new ItemDoInventario(2, "c");
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        ItemDoInventario esperado = i2;
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
     }
 }
 
