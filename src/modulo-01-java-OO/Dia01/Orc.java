@@ -102,6 +102,14 @@ public class Orc
      */
     public void perderItem(ItemDoInventario item) {
         this.itens.remove(item);
+    }    
+   
+    public String getDescricoesItens(){
+        StringBuilder listaItens = new StringBuilder();
+        for(int i = 0; i < itens.size(); i++){
+            listaItens.append( (i < itens.size() - 1) ? itens.get(i).toString() + "," : itens.get(i).toString());
+        }
+        return listaItens.toString();
     }
     
     /**

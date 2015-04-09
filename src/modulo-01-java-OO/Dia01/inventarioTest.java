@@ -15,7 +15,7 @@ public class inventarioTest
 {
    @Test
    public void itemComDescricaoEQuantidade(){
-       ItemDoInventario i = new ItemDoInventario("uma descricao", 2);
+       ItemDoInventario i = new ItemDoInventario(2, "uma descricao");
        
        String descricaoE = "uma descricao";
        int quantidadeE = 2;

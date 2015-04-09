@@ -26,4 +26,8 @@ public class ItemDoInventario
     public int getQuantidade() {
         return this.quantidade;
     }
+    
+    public String toString(){
+        return this.descricao;
+    }
 }
