@@ -11,6 +11,7 @@ public class Orc
     private String nome;
     private Status status = Status.VIVO;
     private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
 
     {
         //vida = 110;
@@ -121,6 +122,113 @@ public class Orc
      */
     public String toString() {
         return "Vida atual: " + this.vida;
+    }
+    
+    /**
+     * Concatena as descrições dos itens, separados por vírgula.
+     * 
+     * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL
+     * 
+     * @return Descrições. Ex:
+     * 
+     * "Adaga,Escudo,Bracelete”
+     */
+    public String getDescricoesItens() {
+        StringBuilder builder = new StringBuilder();
+        
+        /*
+         * Utilizando for tradicional         
+        int numeroDeItens = this.itens.size();
+
+        for (int i = 0; i < numeroDeItens; i++) {
+            ItemDoInventario itemAtual = this.itens.get(i);
+            
+            boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                        
+            builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+            );
+        }
+        */
+       
+       // C#
+       //foreach (ItemDoInventario item in this.itens) { }
+       
+       /*
+        * Utilizando FOREACH!!
+       for (ItemDoInventario itemAtual : this.itens) {
+           int i = this.itens.indexOf(itemAtual);
+           int numeroDeItens = this.itens.size();
+           boolean éÚltimoÍndice = i == numeroDeItens - 1;
+           
+           builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+            );
+       }
+       */
+      
+      /*
+       * JavaScript
+      for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
+      }
+      */
+      
+     /*
+      * WHILE (ENQUANTO)
+      int i = 0;
+      int numeroDeItens = this.itens.size();    
+
+      while (i < numeroDeItens) {
+          ItemDoInventario itemAtual = this.itens.get(i);
+          boolean éÚltimoÍndice = i == numeroDeItens - 1;
+           
+          builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+          );
+          //
+          i++;
+      }
+      */
+     
+     int i = 0;
+     int numeroDeItens = this.itens.size();
+     do {
+         if (numeroDeItens > 0) {
+             ItemDoInventario itemAtual = this.itens.get(i);
+              boolean éÚltimoÍndice = i == numeroDeItens - 1;
+               
+              builder.append(
+                    éÚltimoÍndice ?
+                    itemAtual.getDescricao() :
+                    itemAtual.getDescricao() + ","
+              );
+         }
+         i++;
+     } while(i < numeroDeItens);
+     
+       return builder.toString();
+    }
+    
+    /**
+     * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
+     */
+    public void tentarSorte() {
+        
+        double numeroGerado = gerarNumero();
+        
+        if (numeroGerado == NUMERO_SORTE) {
+            for (ItemDoInventario item : this.itens) {
+                int novaQuantidadeItem = item.getQuantidade() + 1000;
+                item.setQuantidade(novaQuantidadeItem);
+            }
+        }
+        
     }
     
     private double gerarNumero() {

@@ -27,7 +27,7 @@ public class ItemDoInventario
         return this.quantidade;
     }
     
-    public String toString(){
-        return this.descricao;
+    public void setQuantidade(int novaQuantidade) {
+        this.quantidade = novaQuantidade;
     }
 }
