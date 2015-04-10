@@ -5,12 +5,8 @@ import java.util.*;
  * 
  * @author CWI Software
  */
-public class Orc
+public class Orc extends Personagem
 {
-    private int experiencia, vida = 110;
-    private String nome;
-    private Status status = Status.VIVO;
-    private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
     private final int NUMERO_SORTE = 3481;
 
     {
@@ -22,11 +18,11 @@ public class Orc
      */ 
     public Orc(String nome)
     {
-        //vida = 110;
-        this.nome = nome;
+        super(nome, 110);
     }
     
     public Orc() {
+        this("");
     }
     
     /**
@@ -59,22 +55,6 @@ public class Orc
 
     }
     
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-    public int getVida() {
-        return this.vida;
-    }
-    
-    public Status getStatus() {
-        return this.status;
-    }
-    
     public void setStatus(Status novoStatus) {
         this.status = novoStatus;
     }
@@ -83,37 +63,6 @@ public class Orc
         this.experiencia = experiencia;
     }
     
-    public ArrayList<ItemDoInventario> getItens() {
-        return this.itens;
-    }
-    
-    /**
-     * Adiciona um item ao inventário.
-     * 
-     * @param item Item a ser adicionado.
-     */
-    public void adicionarItem(ItemDoInventario item) {
-        this.itens.add(item);
-    }
-
-    /**
-     * Remove o item do inventário do orc.
-     * 
-     * @param item Item a ser perdido do inventário.
-     */
-    public void perderItem(ItemDoInventario item) {
-        this.itens.remove(item);
-    }    
-   
-/*    
-    public String getDescricoesItens(){
-        StringBuilder listaItens = new StringBuilder();
-        for(int i = 0; i < itens.size(); i++){
-            listaItens.append( (i < itens.size() - 1) ? itens.get(i).toString() + "," : itens.get(i).toString());
-        }
-        return listaItens.toString();
-    }
-*/    
     /**
      * Imprime a vida atual do Orc.
      * 
@@ -123,150 +72,7 @@ public class Orc
      */
     public String toString() {
         return "Vida atual: " + this.vida;
-    }
-    
-    /**
-     * Concatena as descrições dos itens, separados por vírgula.
-     * 
-     * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL
-     * 
-     * @return Descrições. Ex:
-     * 
-     * "Adaga,Escudo,Bracelete”
-     */
-    
-    public String getDescricoesItens() {
-        StringBuilder builder = new StringBuilder();        
-        
-         //Utilizando for tradicional         
-        int numeroDeItens = this.itens.size();
-
-        for (int i = 0; i < numeroDeItens; i++) {
-            ItemDoInventario itemAtual = this.itens.get(i);
-            
-            boolean éÚltimoÍndice = i == numeroDeItens - 1;
-                        
-            builder.append(
-                éÚltimoÍndice ?
-                itemAtual.getDescricao() :
-                itemAtual.getDescricao() + ","
-            );
-        }
-        
-        return builder.toString();
-    }   
-      
-       
-       // C#
-       //foreach (ItemDoInventario item in this.itens) { }
-       
-       /*
-        * Utilizando FOREACH!!
-       for (ItemDoInventario itemAtual : this.itens) {
-           int i = this.itens.indexOf(itemAtual);
-           int numeroDeItens = this.itens.size();
-           boolean éÚltimoÍndice = i == numeroDeItens - 1;
-           
-           builder.append(
-                éÚltimoÍndice ?
-                itemAtual.getDescricao() :
-                itemAtual.getDescricao() + ","
-            );
-       }
-       */
-      
-      /*
-       * JavaScript
-      for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
-      }
-      */
-      
-     /*
-      * WHILE (ENQUANTO)
-      int i = 0;
-      int numeroDeItens = this.itens.size();    
-
-      while (i < numeroDeItens) {
-          ItemDoInventario itemAtual = this.itens.get(i);
-          boolean éÚltimoÍndice = i == numeroDeItens - 1;
-           
-          builder.append(
-                éÚltimoÍndice ?
-                itemAtual.getDescricao() :
-                itemAtual.getDescricao() + ","
-          );
-          //
-          i++;
-      }
-      */
-     
-/*     int i = 0;
-     int numeroDeItens = this.itens.size();
-     do {
-         if (numeroDeItens > 0) {
-             ItemDoInventario itemAtual = this.itens.get(i);
-              boolean éÚltimoÍndice = i == numeroDeItens - 1;
-               
-              builder.append(
-                    éÚltimoÍndice ?
-                    itemAtual.getDescricao() :
-                    itemAtual.getDescricao() + ","
-              );
-         }
-         i++;
-     } while(i < numeroDeItens);
-     
-       return builder.toString();
-    }
-*/   
-
-    public ItemDoInventario getItemComMaiorQuantidade(){
-        int maior = 0;
-        ItemDoInventario itemComMaiorQuantidade = null;
-        
-        for(int i = 0; i < itens.size(); i++){
-            if(itens.get(i).getQuantidade() >= maior){
-                maior = itens.get(i).getQuantidade();
-                itemComMaiorQuantidade = itens.get(i);
-            }
-        }
-        
-        return itemComMaiorQuantidade;
     } 
-    
-    public ItemDoInventario getItemComMenorQuantidade(){
-        int menor;
-        
-        if(itens.size() == 0){
-            menor = 0;
-        }else{
-            menor = this.getItemComMaiorQuantidade().getQuantidade();
-        }
-        
-        ItemDoInventario itemComMenorQuantidade = null;
-        
-        for(int i = 0; i < itens.size(); i++){
-            if(itens.get(i).getQuantidade() <= menor){
-                menor = itens.get(i).getQuantidade();
-                itemComMenorQuantidade = itens.get(i);
-            }
-        }
-        
-        return itemComMenorQuantidade;
-    } 
-    
-    public void ordenarItens(){
-        ArrayList<ItemDoInventario> listaOrdenada = new ArrayList<>();
-        
-        int tamanhoOriginal = itens.size();
-        
-        for(int i = 0; i < tamanhoOriginal; i++){
-            listaOrdenada.add(this.getItemComMenorQuantidade());
-            itens.remove(this.getItemComMenorQuantidade());
-        }
-        
-        itens = listaOrdenada;
-    }
     
     /**
      * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
@@ -282,7 +88,7 @@ public class Orc
             }
         }
         
-    }
+    }  
     
     private double gerarNumero() {
         

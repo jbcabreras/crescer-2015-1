@@ -1,14 +1,13 @@
 
 /**
+ * Define objetos Elfo
  * 
  * @author CWI Software
  */
-public class Elfo
+public class Elfo extends Personagem
 {
     // Versão correção do tema!!
-    
-    private String nome;
-    private int flechas, experiencia;
+    private int flechas;
 
     // type initializer
     {
@@ -16,7 +15,7 @@ public class Elfo
     }
     
     /**
-     * Cria objetos Elfo !teste commit!
+     * Cria objetos Elfo
      * 
      * @param umNome Nome que o elfo receberá
      * @param flechas Quantidade inicial de flechas
@@ -34,16 +33,10 @@ public class Elfo
      * @param nome Nome a ser dado para o Elfo.
      */
     public Elfo(String nome) {
-        this.nome = nome;
+        super(nome, 0);
     }
     
-   
-//     public void atirarFlecha() {
-//         //flechas = flechas - 1;
-//         flechas--;
-//         experiencia++;
-//     }
-     /**
+    /**
      * Atira uma flecha e perde uma unidade.
      * 
      * @param umOrc Orc que receberá uma flechada.
@@ -63,14 +56,6 @@ public class Elfo
         return this.flechas;
     }
     
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-//     public void setNome(String novoNome) {
-//         nome = novoNome;
-//     }
-   
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
@@ -136,8 +121,4 @@ public class Elfo
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
     }
-    
-    
-    
-    
 }
