@@ -587,6 +587,30 @@ public class OrcTest
         assertEquals(esperado, o.getItens());
        
     }
+    
+    @Test
+    public void testaOrdenarListaCom3ItensSendo1Negativo(){
+        Orc o = new Orc();
+        
+        ArrayList<ItemDoInventario> esperado = new ArrayList<>();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+        ItemDoInventario i2 = new ItemDoInventario(3, "b");
+        ItemDoInventario i3 = new ItemDoInventario(-1, "c");
+        
+        esperado.add(i3);
+        esperado.add(i1);
+        esperado.add(i2);
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        o.ordenarItens();          
+        
+        assertEquals(esperado, o.getItens());
+       
+    }
 }
 
 
