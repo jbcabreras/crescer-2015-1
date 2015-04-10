@@ -407,6 +407,15 @@ public class OrcTest
         assertEquals(esperado, o.getItemComMaiorQuantidade());
     }
     
+     @Test
+    public void testaItemMenorQuantidadeNenhumItem(){    
+        Orc o = new Orc();                
+            
+        ItemDoInventario esperado = null;
+        
+        assertEquals(esperado, o.getItemComMenorQuantidade());
+    }
+    
        @Test
     public void testaItemMaiorQuantidadeCom1Item(){    
         Orc o = new Orc();
@@ -418,6 +427,19 @@ public class OrcTest
         ItemDoInventario esperado = i1;
         
         assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+     @Test
+    public void testaItemMenorQuantidadeCom1Item(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+      
+        o.adicionarItem(i1);
+       
+        ItemDoInventario esperado = i1;
+        
+        assertEquals(esperado, o.getItemComMenorQuantidade());
     }
     
        @Test
@@ -437,6 +459,23 @@ public class OrcTest
         assertEquals(esperado, o.getItemComMaiorQuantidade());
     }
     
+     @Test
+    public void testaItemMenorQuantidade3ItensComQuantidadesIguais(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+        ItemDoInventario i2 = new ItemDoInventario(2, "b");
+        ItemDoInventario i3 = new ItemDoInventario(2, "c");
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        ItemDoInventario esperado = i3;
+        
+        assertEquals(esperado, o.getItemComMenorQuantidade());
+    }
+    
     @Test
     public void testaItemMaiorQuantidadeCom3ItensComQuantidadesDiferentes(){    
         Orc o = new Orc();
@@ -452,6 +491,101 @@ public class OrcTest
         ItemDoInventario esperado = i2;
         
         assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void testaItemMenorQuantidadeCom3ItensComQuantidadesDiferentes(){    
+        Orc o = new Orc();
+        
+        ItemDoInventario i1 = new ItemDoInventario(1, "a");
+        ItemDoInventario i2 = new ItemDoInventario(3, "b");
+        ItemDoInventario i3 = new ItemDoInventario(2, "c");
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        ItemDoInventario esperado = i1;
+        
+        assertEquals(esperado, o.getItemComMenorQuantidade());
+    }
+    
+    @Test
+    public void testaOrdenarListaCom3ItensComQuantidadesDiferentes(){
+        Orc o = new Orc();
+        
+        ArrayList<ItemDoInventario> esperado = new ArrayList<>();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+        ItemDoInventario i2 = new ItemDoInventario(3, "b");
+        ItemDoInventario i3 = new ItemDoInventario(1, "c");
+        
+        esperado.add(i3);
+        esperado.add(i1);
+        esperado.add(i2);
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        o.ordenarItens();          
+        
+        assertEquals(esperado, o.getItens());
+       
+    }
+    
+    @Test
+    public void testaOrdenarListaComNenhumItens(){
+        Orc o = new Orc();
+        
+        ArrayList<ItemDoInventario> esperado = new ArrayList<>();
+        
+        o.ordenarItens();          
+        
+        assertEquals(esperado, o.getItens());
+       
+    }
+    
+    @Test
+    public void testaOrdenarListaCom1Item(){
+        Orc o = new Orc();
+        
+        ArrayList<ItemDoInventario> esperado = new ArrayList<>();
+        
+        ItemDoInventario i1 = new ItemDoInventario(2, "a");
+
+        esperado.add(i1);
+        
+        o.adicionarItem(i1);
+
+        o.ordenarItens();          
+        
+        assertEquals(esperado, o.getItens());
+       
+    }
+    
+    @Test
+    public void testaOrdenarListaCom3ItensComQuantidadesIguais(){
+        Orc o = new Orc();
+        
+        ArrayList<ItemDoInventario> esperado = new ArrayList<>();
+        
+        ItemDoInventario i1 = new ItemDoInventario(3, "a");
+        ItemDoInventario i2 = new ItemDoInventario(3, "b");
+        ItemDoInventario i3 = new ItemDoInventario(3, "c");
+        
+        esperado.add(i3);
+        esperado.add(i2);
+        esperado.add(i1);
+        
+        o.adicionarItem(i1);
+        o.adicionarItem(i2);
+        o.adicionarItem(i3);
+        
+        o.ordenarItens();          
+        
+        assertEquals(esperado, o.getItens());
+       
     }
 }
 

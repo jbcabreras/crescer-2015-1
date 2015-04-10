@@ -19,6 +19,9 @@ public class ItemDoInventario
         this.descricao = descricao;
     }
     
+    public ItemDoInventario(){
+    };
+    
     public String getDescricao() {
         return this.descricao;
     }

@@ -222,17 +222,51 @@ public class Orc
 
     public ItemDoInventario getItemComMaiorQuantidade(){
         int maior = 0;
-        ItemDoInventario ItemComMaiorQuantidade = null;
+        ItemDoInventario itemComMaiorQuantidade = null;
         
         for(int i = 0; i < itens.size(); i++){
             if(itens.get(i).getQuantidade() >= maior){
                 maior = itens.get(i).getQuantidade();
-                ItemComMaiorQuantidade = itens.get(i);
+                itemComMaiorQuantidade = itens.get(i);
             }
         }
         
-        return ItemComMaiorQuantidade;
+        return itemComMaiorQuantidade;
     } 
+    
+    public ItemDoInventario getItemComMenorQuantidade(){
+        int menor;
+        
+        if(itens.size() == 0){
+            menor = 0;
+        }else{
+            menor = this.getItemComMaiorQuantidade().getQuantidade();
+        }
+        
+        ItemDoInventario itemComMenorQuantidade = null;
+        
+        for(int i = 0; i < itens.size(); i++){
+            if(itens.get(i).getQuantidade() <= menor){
+                menor = itens.get(i).getQuantidade();
+                itemComMenorQuantidade = itens.get(i);
+            }
+        }
+        
+        return itemComMenorQuantidade;
+    } 
+    
+    public void ordenarItens(){
+        ArrayList<ItemDoInventario> listaOrdenada = new ArrayList<>();
+        
+        int tamanhoOriginal = itens.size();
+        
+        for(int i = 0; i < tamanhoOriginal; i++){
+            listaOrdenada.add(this.getItemComMenorQuantidade());
+            itens.remove(this.getItemComMenorQuantidade());
+        }
+        
+        itens = listaOrdenada;
+    }
     
     /**
      * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
