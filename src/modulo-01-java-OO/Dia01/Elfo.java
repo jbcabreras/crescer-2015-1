@@ -6,12 +6,14 @@
  */
 public class Elfo extends Personagem
 {
+    
     // Versão correção do tema!!
     protected int flechas;
 
     // type initializer
     {
         flechas = 42;
+        vida = 100;
     }
     
     /**

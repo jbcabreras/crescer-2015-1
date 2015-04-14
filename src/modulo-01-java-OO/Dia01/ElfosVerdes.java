@@ -11,10 +11,8 @@ public class ElfosVerdes extends Elfo{
         super(nome);
     } 
     public void atirarFlecha(Orc umOrc) {
-        //flechas = flechas - 1;
-        flechas--;
-        experiencia += 2;
-        umOrc.recebeAtaque();
+        super.atirarFlecha(umOrc);
+        experiencia ++;        
     }
     
     public void adicionarItem(ItemDoInventario item){
