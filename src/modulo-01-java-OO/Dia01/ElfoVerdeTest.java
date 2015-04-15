@@ -1,89 +1,52 @@
+
+
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
- * Testes para classe ElfoVerde.
+ * The test class ElfosVerdesTest.
  *
- * @author  CWI Software
+ * @author  (your name)
+ * @version (a version number or a date)
  */
-public class ElfoVerdeTest
-{
-    @Test
-    public void quandoatirarFlechaGanha2() {
-        ElfoVerde elfoVerde = new ElfoVerde("Green Legolas");
-        int experienciaEsperada = 2;
-        elfoVerde.atirarFlecha(new Orc());
-        int experienciaObtida = elfoVerde.getExperiencia();
-        assertEquals(experienciaEsperada, experienciaObtida);
-    }
 
-    @Test
-    public void quandoatirarFlechaDuasVezesGanha4() {
-        ElfoVerde elfoVerde = new ElfoVerde("Denethor, filho de Lenwë");
-        int experienciaEsperada = 4;
-        elfoVerde.atirarFlecha(new Orc());
-        elfoVerde.atirarFlecha(new Orc());
-        int experienciaObtida = elfoVerde.getExperiencia();
-        assertEquals(experienciaEsperada, experienciaObtida);
-    }
+public class ElfoVerdeTest {
+@Test
+public void ElfosVerdesGanhamODobroDeXPAoAtirarUmaFlecha(){
 
-    @Test
-    public void quandoatirarFlechaCincoVezesGanha10() {
-        ElfoVerde elfoVerde = new ElfoVerde("Green Legolas");
-        int experienciaEsperada = 10;
-        elfoVerde.atirarFlecha(new Orc());
-        elfoVerde.atirarFlecha(new Orc());
-        elfoVerde.atirarFlecha(new Orc());
-        elfoVerde.atirarFlecha(new Orc());
-        elfoVerde.atirarFlecha(new Orc());
-        int experienciaObtida = elfoVerde.getExperiencia();
-        assertEquals(experienciaEsperada, experienciaObtida);
-    }
-
-    @Test
-    public void quandoAdicionaItemNulo() {
-        ElfoVerde elfoVerde = new ElfoVerde("Denethor, filho de Lenwë");
-        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
-        elfoVerde.adicionarItem(null);
-        ArrayList<ItemDoInventario> inventarioObtido = elfoVerde.getItens();
-        assertEquals(inventarioEsperado, inventarioObtido);
-    }
+    ElfoVerde e = new ElfoVerde("teste");
     
-    @Test
-    public void quandoAdicionaItemComDescricaoInvalida() {
-        ElfoVerde elfoVerde = new ElfoVerde("Denethor, filho de Lenwë");
-        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
-        elfoVerde.adicionarItem(new ItemDoInventario(1, "Canivete suiço"));
-        ArrayList<ItemDoInventario> inventarioObtido = elfoVerde.getItens();
-        assertEquals(inventarioEsperado, inventarioObtido);
-    }
+    Orc o = new Orc();
+    
+    e.atirarFlecha(o);
+    
+    int xpE = 2;
+    
+    assertEquals(xpE, e.getExperiencia());
+}
 
-    @Test
-    public void quandoAdicionaUmItemComDescricaoValida() {
-        ElfoVerde elfoVerde = new ElfoVerde("Denethor, filho de Lenwë");
-        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
-        ItemDoInventario espadaValiriana = new ItemDoInventario(1, "Espada de aço valiriano");
-        inventarioEsperado.add(espadaValiriana);
-        elfoVerde.adicionarItem(espadaValiriana);
-        ArrayList<ItemDoInventario> inventarioObtido = elfoVerde.getItens();
-        assertEquals(inventarioEsperado, inventarioObtido);
-    }
+@Test
+public void ElfosVerdesSoPodemAdicionar2TiposDeItens(){
 
-    @Test
-    public void quandoAdicionaDoisItensComDescricaoValida() {
-        ElfoVerde elfoVerde = new ElfoVerde("Denethor, filho de Lenwë");
-        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
-        ItemDoInventario espadaValiriana = new ItemDoInventario(1, "Espada de aço valiriano");
-        ItemDoInventario arcoEFlechaVidro = new ItemDoInventario(2, "Arco e Flecha de vidro");
-        inventarioEsperado.add(espadaValiriana);
-        inventarioEsperado.add(arcoEFlechaVidro);
-        elfoVerde.adicionarItem(espadaValiriana);
-        elfoVerde.adicionarItem(new ItemDoInventario(2, "Botas de couro"));
-        elfoVerde.adicionarItem(arcoEFlechaVidro);
-        ArrayList<ItemDoInventario> inventarioObtido = elfoVerde.getItens();
-        assertEquals(inventarioEsperado, inventarioObtido);
-    }
+    ElfoVerde e = new ElfoVerde("teste");
+    ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+    
+    ItemDoInventario i1 = new ItemDoInventario(3, "teste");
+    ItemDoInventario i2 = new ItemDoInventario(2, "teste2");
+    ItemDoInventario i3 = new ItemDoInventario(3, "Espada de aço valiriano");
+    ItemDoInventario i4 = new ItemDoInventario(2, "Arco e Flecha de vidro");
+    
+    e.adicionarItem(i1);
+    e.adicionarItem(i2);
+    e.adicionarItem(i3);
+    e.adicionarItem(i4);
+    
+    inventarioEsperado.add(i3);
+    inventarioEsperado.add(i4);
+    
+    assertEquals(inventarioEsperado, e.getItens());
+}
 }

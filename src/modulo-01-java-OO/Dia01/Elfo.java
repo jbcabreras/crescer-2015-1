@@ -57,7 +57,8 @@ public class Elfo extends Personagem
     
     public int getFlechas() {
         return this.flechas;
-    }
+    } 
+    
     
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
