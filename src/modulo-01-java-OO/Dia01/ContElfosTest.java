@@ -15,7 +15,8 @@ public class ContElfosTest
 {
 @Test
 public void TestaContadorDeElfosCriando1Elfo(){
-
+    contElfos.zerarCont();
+    
     Elfo e = new Elfo("teste");
     
     int esperado = 1;

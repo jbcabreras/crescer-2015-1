@@ -29,7 +29,14 @@ public class ExercitoDeElfosTest
         Elfo e = new Elfo("teste");
         
         ExercitoDeElfos eObtido = new ExercitoDeElfos();
-        eObtido.alistarElfo(e);
+        
+        try{
+            eObtido.alistarElfo(e);
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
         
         assertEquals(eEsperado.isEmpty(), eObtido.taVazi());        
     }
@@ -43,7 +50,14 @@ public class ExercitoDeElfosTest
         eEsperado.put("teste", en);
         
         ExercitoDeElfos eObtido = new ExercitoDeElfos();
-        eObtido.alistarElfo(en);
+        
+        try{
+            eObtido.alistarElfo(en);
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
         
         assertEquals(eEsperado.get("teste"), eObtido.buscarElfo("teste"));        
     }
@@ -56,7 +70,14 @@ public class ExercitoDeElfosTest
         eEsperado.put("teste", ev);
         
         ExercitoDeElfos eObtido = new ExercitoDeElfos();
-        eObtido.alistarElfo(ev);
+       
+        try{
+            eObtido.alistarElfo(ev);
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
         
         assertEquals(eEsperado.get("teste"), eObtido.buscarElfo("teste"));        
     }
@@ -76,13 +97,61 @@ public class ExercitoDeElfosTest
         eEsperado.put("teste4", en2);
         
         ExercitoDeElfos eObtido = new ExercitoDeElfos();
-        eObtido.alistarElfo(ev1);
-        eObtido.alistarElfo(ev2);
-        eObtido.alistarElfo(en1);
-        eObtido.alistarElfo(en2);
-        eObtido.alistarElfo(e);
+        
+        try{
+            eObtido.alistarElfo(ev1);
+            eObtido.alistarElfo(ev2);
+            eObtido.alistarElfo(en1);
+            eObtido.alistarElfo(en2);
+            eObtido.alistarElfo(e);
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
+        
         
         assertEquals(eEsperado.size(), eObtido.tamanho());        
+    }
+    
+    @Test
+    public void AgruparVariosElfosPorStatus(){
+        Elfo eVivo1 = new ElfoVerde("teste1");
+        Elfo eVivo2 = new ElfoNoturno("teste2");
+        Elfo eVivo3 = new ElfoVerde("teste3");
+        Elfo eAtac1 = new ElfoVerde("teste4");
+        Elfo eAtac2 = new ElfoVerde("teste5");
+        
+        eAtac1.atirarFlecha(new Orc());
+        eAtac2.atirarFlecha(new Orc());
+        
+        HashMap<Status, ArrayList<Elfo>> esperado = new HashMap<>();
+        
+        esperado.put(Status.ATACANDO, new ArrayList<>(
+            Arrays.asList(eAtac2, eAtac1)
+        ));
+        esperado.put(Status.VIVO, new ArrayList<>(
+            Arrays.asList(eVivo3, eVivo1, eVivo2)
+        ));
+        
+        ExercitoDeElfos obtido = new ExercitoDeElfos();
+        
+        try{
+            obtido.alistarElfo(eAtac1);
+            obtido.alistarElfo(eAtac2);
+            obtido.alistarElfo(eVivo1);
+            obtido.alistarElfo(eVivo2);
+            obtido.alistarElfo(eVivo3);
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
+        
+        
+        obtido.agruparPorStatus();
+        
+        assertEquals(esperado, obtido.getElfosPorStatus());
     }
     
     @Test
@@ -100,12 +169,20 @@ public class ExercitoDeElfosTest
         eEsperado.put("teste4", en2);
         
         ExercitoDeElfos eObtido = new ExercitoDeElfos();
-        eObtido.alistarElfo(ev1);
-        eObtido.alistarElfo(ev2);
-        eObtido.alistarElfo(en1);
-        eObtido.alistarElfo(en2);
-        eObtido.alistarElfo(e);
         
-        assertEquals(eEsperado.values(), eObtido.retornaElfosComStatus(Status.VIVO));        
+         try{
+              eObtido.alistarElfo(ev1);
+              eObtido.alistarElfo(ev2);
+              eObtido.alistarElfo(en1);
+              eObtido.alistarElfo(en2);
+              eObtido.alistarElfo(e);
+        
+        }catch (NaoPodeAlistarException error){      
+            System.out.println(error);
+        }finally{
+            System.out.println("Finalmente ultimo dia de BlueJ!");
+        }
+      
+        assertEquals(eEsperado, eObtido.retornaElfosComStatusInformado(Status.VIVO));        
     }
 }
