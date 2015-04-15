@@ -21,7 +21,7 @@ public class OrcTest
         // Act - Execução da ação de testes
         umOrc = new Orc();
         // Assert - Verificação
-        double esperado = 110;
+        double esperado = 110.0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);
@@ -47,7 +47,7 @@ public class OrcTest
         // Act
         umOrc.recebeAtaque();
         // Assert - Verificação
-        double esperado = 100;
+        double esperado = 100.0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);
@@ -61,7 +61,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        double esperado = 90;
+        double esperado = 90.0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);
@@ -78,7 +78,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        double esperado = 60;
+        double esperado = 60.0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);
@@ -115,7 +115,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        double esperado = 0;
+        double esperado = 0.0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);

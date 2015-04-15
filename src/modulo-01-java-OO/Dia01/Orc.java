@@ -105,7 +105,7 @@ public class Orc extends Personagem
         
         // B. Se o orc possuir vida entre 30 e 60, multiple o número por dois,
         // senão se a vida for menor que 20 multiplique por 3.
-        boolean possuiVidaEntre30e60 = this.vida >= 30 && this.vida <= 60;
+        boolean possuiVidaEntre30e60 = this.vida >= 30.0 && this.vida <= 60.0;
         
         if (possuiVidaEntre30e60) {
             numeroGerado *= 2;

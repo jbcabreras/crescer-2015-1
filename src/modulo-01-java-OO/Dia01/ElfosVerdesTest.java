@@ -17,7 +17,7 @@ public class ElfosVerdesTest {
 @Test
 public void ElfosVerdesGanhamODobroDeXPAoAtirarUmaFlecha(){
 
-    ElfosVerdes e = new ElfosVerdes("teste");
+    ElfoVerde e = new ElfoVerde("teste");
     
     Orc o = new Orc();
     
@@ -31,7 +31,7 @@ public void ElfosVerdesGanhamODobroDeXPAoAtirarUmaFlecha(){
 @Test
 public void ElfosVerdesSoPodemAdicionar2TiposDeItens(){
 
-    ElfosVerdes e = new ElfosVerdes("teste");
+    ElfoVerde e = new ElfoVerde("teste");
     ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
     
     ItemDoInventario i1 = new ItemDoInventario(3, "teste");

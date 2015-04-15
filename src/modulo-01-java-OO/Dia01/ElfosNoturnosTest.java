@@ -13,11 +13,12 @@ import org.junit.Test;
  */
 public class ElfosNoturnosTest
 {
+    private final double DELTA = 0.005;
     
     @Test
 public void ElfosNoturnosGanhamOTriploDeXPAoAtirarUmaFlecha(){
 
-    ElfosNoturnos e = new ElfosNoturnos("teste");
+    ElfoNoturno e = new ElfoNoturno("teste");
     
     Orc o = new Orc();
     
@@ -31,14 +32,14 @@ public void ElfosNoturnosGanhamOTriploDeXPAoAtirarUmaFlecha(){
     @Test
 public void ElfosNoturnosPerdem5PorCentoDeVidaAoAtirarUmaFlecha(){
 
-    ElfosNoturnos e = new ElfosNoturnos("teste");
+    ElfoNoturno e = new ElfoNoturno("teste");
     
     Orc o = new Orc();
     
     e.atirarFlecha(o);
     
-    int vidaE = 95;
+    double vidaE = 95.0;
     
-    assertEquals(vidaE, e.getVida());
+    assertEquals(vidaE, e.getVida(), DELTA);
 }
 }
