@@ -49,9 +49,56 @@ from empregado e
 --6)Faça uma cópia da tabela Empregado e altere o salário de todos os empregados que o departamento 
 --fique na localidade de SAO PAULO, faça um reajuste de 14,5%
 
-select into EmpregadoAux
-from 
+begin transaction
+
+select * into EmpregadoAux
+from Empregado
+
+--select * from EmpregadoAux order by salario desc
+
+update EmpregadoAux set Salario = Salario * 1.145
+where IDDepartamento in (select IDDepartamento from Departamento where Localizacao = 'SAO PAULO') 
+
+commit
 
 --7)Liste a diferença que representará o reajuste aplicado no item anterior no somatório dos salários
 -- de todos os empregados.
+
+select (sum(ea.salario) - sum(e.salario)) as diferenca
+from Empregado e
+	 join EmpregadoAux ea on e.IDEmpregado = ea.IDEmpregado
+
 --8)Liste o departamento que possui o empregado de maior salário.
+
+select NomeDepartamento
+from Departamento d
+where d.iddepartamento in (select top 1 IDDepartamento 
+						   from empregadoAux e
+						   where IDDepartamento is not null
+						   group by IDDepartamento 
+						   order by max(salario) desc)
+						   
+						  
+
+--select * from empregado order by salario desc
+
+--select * from Departamento
+
+--9)Faça uma consulta para exibir o nome de cada associado e sua cidade e juntamente com os
+--empregados (nome) e a cidade (localidade) de seu departamento, isto deve ser exibido em uma consulta.
+
+select a.nome, c.nome 
+from Associado a
+	join cidade c on a.IDCidade = c.IDCidade
+union 
+select e.NomeEmpregado, d.localizacao
+from empregado e
+	join Departamento d on e.IDDepartamento = d.IDDepartamento
+
+
+--10)Lista as cidades que tenham associado relacionado.
+
+select c.nome
+from cidade c
+where c.idcidade in (select IDCidade from Associado where IDCidade is not null)
+
