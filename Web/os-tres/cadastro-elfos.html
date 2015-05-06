@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cadastro de Elfos</title>
+</head>
+<body>
+<h3>Cadastro de Elfos:</h3>
+		<form method="POST">	
+			<div style="height: 50px;">
+				<label for="nome">Nome do Elfo:</label><br>
+				<input id="nome" name="nome" type="text">
+			</div>
+			<div style="height: 50px;">
+				<label for="sexo">Sexo:</label><br>
+				<select name="sexo">
+					<option>Selecione</option>
+					<option>Masculino</option>
+					<option>Feminino</option>
+				</select> 
+			</div>
+			<div style="height: 50px;">
+				<label for="flechas">Qtd inicial de flechas:</label><br>
+				<input name="flechas" type="number">
+			</div>
+			<div style="height: 50px;">
+				<label for="data_n">Data de Nacimento:</label><br>
+				<input name="data_n" type="date">
+			</div>
+			<div style="height: 50px;">
+				<label for="status">Status inicial:</label><br>
+				<select name="status">
+					<option>Selecione</option>
+					<option>Dormindo</option>
+					<option>Caçando</option>
+					<option>Contando piada</option>
+				</select>				
+			</div>
+			<div style="height: 110px;">
+				Itens iniciais:<br>
+				<input type="checkbox" name="arco">Arco e Flecha<br>
+				<input type="checkbox" name="espada">Espada de aço Porto-alegrense<br>
+				<input type="checkbox" name="escudo">Escudo de amburana<br>
+				<input type="checkbox" name="pocao">Poção HP<br>
+			</div>
+			<div style="height: 50px;">
+				<label for="imagem">Imagem avatar do Elfo:</label><br>
+				<input name="imagem" type="file">
+			</div>
+			<div style="height: 50px;">
+				<input type="submit" value="Cadastrar!">
+			</div>
+		</form>	
+	</body>
+</html>
