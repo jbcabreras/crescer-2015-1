@@ -9,23 +9,20 @@
 		<form method="POST" enctype="multipart/form-data">	
 			<div style="height: 50px;">
 				<label for="nome">Nome do Elfo:</label><br>
-				<input id="nome" name="nome" type="text" pattern=".{6,}" required>
+				<input name="nome" type="text" placeholder="Digite o nome..." pattern=".{6,}" required>
 			</div>
 			<div style="height: 50px;">
 				<label for="sexo">Sexo:</label><br>
-				<select name="sexo" required>
-					<option value="">Selecione</option>
-					<option value="masc">Masculino</option>
-					<option value="fem">Feminino</option>
-				</select> 
+				<input name="sexo" type="radio" value="m" required> Masculino
+				<input name="sexo" type="radio" value="f" required> Feminino	
 			</div>
 			<div style="height: 50px;">
 				<label for="flechas">Qtd inicial de flechas:</label><br>
 				<input name="flechas" type="number" value="42">
 			</div>
 			<div style="height: 50px;">
-				<label for="data_n">Data de Nacimento:</label><br>
-				<input name="data_n" type="date" required>
+				<label for="dataNasc">Data de Nacimento:</label><br>
+				<input name="dataNasc" type="date" required>
 			</div>
 			<div style="height: 50px;">
 				<label for="status">Status inicial:</label><br>
