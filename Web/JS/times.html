@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript">
+				/* 1 ---------------------------------------------------
+
+		Reds Go Marching On
+
+		Na terra d'A Rainha futebol é levado muito a sério, por isso o governo inglês solicitou que 
+		você crie um array com a contagem de títulos dos 4 principais clubes ingleses: 
+		Arsenal, Chelsea, Liverpool e Manchester United. 
+		Cada objeto do array será composto pela seguinte estrutura:
+
+		Obs: considere apenas os campeonatos ingleses como "Nacionais", 
+		apenas a UEFA Champions League para "Continentais" 
+		e como "Mundiais" a Copa do Mundo de Clubes FIFA e também o Campeonato Intercontinental.
+		*/
+
+		var clubes = [
+			chelsea = {
+			  nome: 'Chelsea Football Club',
+			  titulos: [
+			    { desc: 'Nacionais', qtd: 5 },
+			    { desc: 'Continentais', qtd: 1 },
+			    { desc: 'Mundiais', qtd: 0 }
+			  ]
+			},
+
+			manchester = {
+			  nome: 'Manchester United Football Club',
+			  titulos: [
+			    { desc: 'Nacionais', qtd: 20 },
+			    { desc: 'Continentais', qtd: 3 },
+			    { desc: 'Mundiais', qtd: 2 }
+			  ]
+			},
+
+			liverpool = {
+			  nome: 'Liverpool  Football Club',
+			  titulos: [
+			    { desc: 'Nacionais', qtd: 18 },
+			    { desc: 'Continentais', qtd: 5 },
+			    { desc: 'Mundiais', qtd: 0 }
+			  ]
+			},
+
+			arsenal = {
+			  nome: 'Arsenal  Football Club',
+			  titulos: [
+			    { desc: 'Nacionais', qtd: 13 },
+			    { desc: 'Continentais', qtd: 0 },
+			    { desc: 'Mundiais', qtd: 0 }
+			  ]
+			}
+		]
+
+		/* 2a --------------------------------------------------
+
+		Crie uma função chamada ordenaPorNacionais(Array) que recebe o array de clubes e retorna o 
+		array ordenado pela quantidade de títulos Nacionais descendente (Z->A).
+		*/
+
+		function ordenaPorNacionais(arrayClubes){
+			arrayClubes.sort(function(a,b){
+				return a.titulos[0].qtd < b.titulos[0].qtd;
+			});
+		}
+
+		/*
+		2.B
+
+		Crie uma função chamada ordenaPorContinentais(Array) que recebe o array de clubes e retorna
+		o array ordenado pela quantidade de títulos Continentais descendente (Z->A).
+		*/
+
+		function ordenaPorContinentais(arrayClubes){
+			arrayClubes.sort(function(a,b){
+				return a.titulos[1].qtd < b.titulos[1].qtd;
+			});
+		}
+
+		/*
+		2.C
+
+		Crie uma função chamada ordenaPorMundiais(Array) que recebe o array de clubes e retorna o array 
+		ordenado pela quantidade de títulos Mundiais descendente (Z->A).
+		*/
+
+		function ordenaPorMundiais(arrayClubes){
+			arrayClubes.sort(function(a,b){
+				return a.titulos[2].qtd < b.titulos[2].qtd;
+			});
+		}
+
+		/*
+		3.A
+
+		Crie uma função chamada somarPorNacionais(Array) que recebe o array de clubes e retorna o 
+		somatório de todas quantidades de títulos nacionais entre os clubes do array.
+		*/
+
+		function somarPorNacionais(arrayClubes){
+			var nacionais = arrayClubes.map(function(i){
+				return i.titulos[0].qtd;
+			});
+
+			return nacionais.reduce(function(a,b){
+				return a + b;
+			});
+		}
+
+		/*
+		3.B
+
+		Crie uma função chamada somarPorContinentais(Array) que recebe o array de clubes e 
+		retorna o somatório de todas quantidades de títulos continentais entre os clubes do array.
+		*/
+
+		function somarPorContinentais(arrayClubes){
+			var continentais = arrayClubes.map(function(i){
+				return i.titulos[1].qtd;
+			});
+
+			return continentais.reduce(function(a,b){
+				return a + b;
+			});
+		}
+
+		/*
+		3.C
+
+		Crie uma função chamada somarPorTodosTitulos(Array) que recebe o array de clubes e retorna
+		o somatório de todas quantidades de todos os títulos entre os clubes do array.
+		*/
+
+
+		function somarPorTodosTitulos(arrayClubes){
+			var nacionais = arrayClubes.map(function(i){
+				return i.titulos[0].qtd;
+			});
+
+			var continentais = arrayClubes.map(function(i){
+				return i.titulos[1].qtd;
+			});
+
+			var mundiais = arrayClubes.map(function(i){
+				return i.titulos[2].qtd;
+			});
+
+			var total = nacionais.concat(continentais).concat(mundiais);
+
+			return total.reduce(function(a,b){
+				return a + b;
+			});
+		}
+
+		/*
+		Exercício 4
+
+		Glory Glory Man United
+
+		Escreva uma função chamada apenasOsMelhores(Array) que recebe o array de clubes e retorna apenas os clubes que têm mais de 18 títulos ingleses.
+		*/
+
+		function apenasOsMelhores(arrayClubes){
+			var nacionais = arrayClubes.map(function(i){
+				if(i.titulos[0].qtd > 18){
+					return i.nome;
+				}
+			});
+
+			return nacionais;
+		}
+
+		/*
+		5.A
+
+		Escreva uma função chamada apenasOsMelhoresParaJSON(Array) que recebe o array dos clubes que têm mais de 18 títulos ingleses e retorna a representação JSON deles.
+		*/
+
+		function apenasOsMelhoresParaJSON(arrayClubes){
+			var nacionais = arrayClubes.map(function(i){
+				if(i.titulos[0].qtd > 18){
+					return JSON.stringify(i);
+
+				}
+			});
+
+			return nacionais;
+		}
+
+		/*
+		5.B
+
+		Escreva uma função chamada apenasOsMelhoresRecebendoJSON(String) que recebe uma String no formato JSON e retorna o Array de objetos JavaScript.
+
+		// {"nome":"Manchester United Football Club","titulos":[{"desc":"Nacionais","qtd":20},{"desc":"Continentais","qtd":3},{"desc":"Mundiais","qtd":2}]}
+		*/
+
+		function apenasOsMelhoresRecebendoJSON(stringJson){
+			return JSON.parse(stringJson);
+
+		}
+
+
+	</script>
+
+</html>
+
