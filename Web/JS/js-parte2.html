@@ -30,6 +30,19 @@
 		return cont;
 	}
 
+	[
+    { params: ['american ipa','american ipa'],                        esperado: 0 },
+    { params: ['russian imperial stout','russian imperial vodka'],    esperado: 5 },
+    { params: ['1002012','dfgdf12'],                                  esperado: 5 },
+    { params: ['k4rol1n','k4thr1n'],                                  esperado: 3 },
+    { params: ['a1df222266%334op;','ssdfjfdkjgsdfgofdgudf9g8dufsg'],  esperado: 26 },
+  ].forEach(
+    function(ct) {
+      var res = brewdog(ct.params[0], ct.params[1]);
+      console.assert(res === ct.esperado, 'Errooooou! CT:', ct.params, 'Esperado:', ct.esperado, 'Obtido:', res);
+    }
+  );
+
 	/*
 	Empréstimo
 
@@ -59,16 +72,27 @@
 	    var res = (this.valorTotal * this.taxaJuros) / 
 	    	(1-(1/Math.pow((1 + this.taxaJuros), this.parcelasRestantes)));	    
 
-	    return res.toFixed(2);
+	    	return Math.round(res*100)/100;
 		}
 
 		this.valorTotalJuros = function(){
 
 			var res = (this.valorParcela() * this.parcelasRestantes) - this.valorTotal; 
 
-			return res.toFixed(2);
+			return Math.round(res*100)/100;
 		}
 	}
+
+	[
+    { emprestimo: new Emprestimo(1000, 0.03, 4),  esperado: 269.03 },
+    { emprestimo: new Emprestimo(1800, 0.05, 8),  esperado: 278.5 },
+    { emprestimo: new Emprestimo(500, 0.05),      esperado: 183.6 },
+		  ].forEach(
+		    function(ct) {
+		      var res = ct.emprestimo.valorParcela();
+		      console.assert(res === ct.esperado, 'Errooooou! CT:', ct.emprestimo, 'Esperado:', ct.esperado, 'Obtido:', res);
+		    }
+		  );
 
 	/*
 	Palíndromo Iluminatti
@@ -79,8 +103,8 @@
 
 	Palíndromo Iluminatti possui as mesmas características de um palíndromo tradicional e também as seguintes regras:
 
-	Caractéres especiais, espaços em branco e diacríticos devem ser desconsiderados, bem como se as letras são MAIÚSCULAS ou minúsculas.
-	Também pode ser um Palíndromo Iluminatti se a String informada for uma das abaixo:
+	1 - Caractéres especiais, espaços em branco e diacríticos devem ser desconsiderados, bem como se as letras são MAIÚSCULAS ou minúsculas.
+	2 - Também pode ser um Palíndromo Iluminatti se a String informada for uma das abaixo:
 
 	'iluminatti'
 	'ledesma'
