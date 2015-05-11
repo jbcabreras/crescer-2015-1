@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+	
+	/*
+	Brewdog
+
+	Escreva uma função em JS que retorne o número de caracteres diferentes entre dois textos. Chame esta função de:
+	*/
+
+	function brewdog(umTexto, outroTexto){
+		var res1 = umTexto.split('');
+		var res2 = outroTexto.split('');
+		var maior, menor, cont = 0;
+
+		if(res1.length > res2.length){
+			maior = res1;
+			menor = res2;
+		}else{
+			maior = res2;
+			menor = res1;
+		}
+
+		for (var i = 0; i < maior.length; i++) {
+			if(maior[i] !== menor[i]){
+				cont++;
+			}			
+		};
+
+		return cont;
+	}
+
+	/*
+	Empréstimo
+
+	Faça uma classe em JS que gerencie cálculos de empréstimos com juros compostos, de acordo com a tabela Price. Para isso:
+
+	2A
+
+	Escreva um construtor que receba o valor total do empréstimo, a taxa de juros a ser aplicada e o número de parcelas para quitação total do empréstimo. Caso o número de parcelas não seja informado, deve-se assumir o valor padrão 3. Ex:
+
+	  var emprestimo = new Emprestimo(1000, 0.03, 4);
+	  console.log(emprestimo.valorTotal); // 1000
+
+	2B
+
+	Escreva uma função que retorne o valor da parcela do financiamento. Formate o número de saída com até duas casas de precisão numérica. São permitidos apenas arredondamentos numéricos para cima. Ex:
+  	*/
+
+  	function Emprestimo(valorTotal, taxaJuros, parcelasRestantes) {
+ 
+	  
+	    this.valorTotal = valorTotal;
+	    this.taxaJuros = taxaJuros;
+	    this.parcelasRestantes = parcelasRestantes || 3;
+	 
+	    this.valorParcela = function() {
+
+	    var res = (this.valorTotal * this.taxaJuros) / 
+	    	(1-(1/Math.pow((1 + this.taxaJuros), this.parcelasRestantes)));	    
+
+	    return res.toFixed(2);
+
+		}
+}
+
+</script>
+</html>
