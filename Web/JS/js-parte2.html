@@ -60,9 +60,67 @@
 	    	(1-(1/Math.pow((1 + this.taxaJuros), this.parcelasRestantes)));	    
 
 	    return res.toFixed(2);
-
 		}
-}
 
+		this.valorTotalJuros = function(){
+
+			var res = (this.valorParcela() * this.parcelasRestantes) - this.valorTotal; 
+
+			return res.toFixed(2);
+		}
+	}
+
+	/*
+	Palíndromo Iluminatti
+
+	Faça uma função que receba uma String e verifica se a mesma é um Palíndromo Iluminatti.
+
+	O quê é um Palíndromo Iluminatti?
+
+	Palíndromo Iluminatti possui as mesmas características de um palíndromo tradicional e também as seguintes regras:
+
+	Caractéres especiais, espaços em branco e diacríticos devem ser desconsiderados, bem como se as letras são MAIÚSCULAS ou minúsculas.
+	Também pode ser um Palíndromo Iluminatti se a String informada for uma das abaixo:
+
+	'iluminatti'
+	'ledesma'
+	'dante'
+	'verde musgo'
+	'bacon'
+	*/
+
+	function palindromo(str){
+		var res = false;
+		var cont = 0;
+		var frase = str.replace( /\s/g, '' ).toLowerCase();
+		var invert = frase.length - 1;
+
+		if (str === 'iluminatti' ||
+			str === 'ledesma' ||
+			str === 'dante' ||
+			str === 'verde musgo' ||
+			str === 'bacon') {
+
+			res = true;
+
+		}else{
+			for (var i = 0; i < frase.length; i++) {
+				
+				if (frase[i] === frase[invert]){
+				}else{
+					cont = cont + 1;
+				}
+
+				invert = invert - 1;
+			};
+
+			if(cont == 0){
+				res = true;
+			}
+		};
+
+		return res;
+	}
+	
 </script>
 </html>
