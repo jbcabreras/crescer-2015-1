@@ -43,7 +43,7 @@ var res = $('#fruits tr:even:not(:first-child)');
 Faça uma instrução jQuery que encontre quantos elementos h2 possuem as letras "B", "e" NO MESMO texto.
 */
 
-
+$('h2:contains(B):contains(e)')
 
 /*
 1G
@@ -53,22 +53,35 @@ Faça uma instrução jQuery que selecione todos os li dentro de #myList que nã
 :warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning:
 
 Proibido utilizar os pseudo-seletores :eq, :gt ou :lt.
+*/
 
+$("#myList li[class!='current bar']")
+
+/*
 1H
 
-Faça uma instrução jQuery que selecione todos os elementos que são os últimos filhos no HTML do tipo img OU que são os últimos filhos no HTML do tipo h3
+Faça uma instrução jQuery que selecione todos os elementos que são os últimos filhos no HTML do 
+tipo img OU que são os últimos filhos no HTML do tipo h3
+*/
 
+$("html img:last, html h3:last")
+
+/*
 1I
 
-Faça uma instrução jQuery que conte o número de caractéres somados dos textos de todos li que estão APÓS o li com fonte vermelha, dentro de #myList. Ex:
+Faça uma instrução jQuery que conte o número de caractéres somados dos textos de todos li 
+que estão APÓS o li com fonte vermelha, dentro de #myList. Ex:
 
 <ul id='myList'>
     <li class='current bar'>vermelho</li>
     <li>Azul</li>
     <li>Verde</li>
 </ul>
+
 'Azul'.length + 'Verde'.length => 9
 :warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning::warning:
 
 Não utilize os pseudo-seletores :eq, :gt ou lt!
 */
+
+$("#myList li[class='current bar']").next().text().length + $("#myList li[class='current bar']:last").text().length

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
+	'use strict;'
 	
 	/*
 	Brewdog
@@ -119,11 +120,29 @@
 		var frase = str.replace( /\s/g, '' ).toLowerCase();
 		var invert = frase.length - 1;
 
-		if (str === 'iluminatti' ||
-			str === 'ledesma' ||
-			str === 'dante' ||
-			str === 'verde musgo' ||
-			str === 'bacon') {
+		String.prototype.sanitize = function() {
+	    var diacritics = [
+	        { original: /[âáàã]/gi,  sanitized: 'a' },
+	        { original: /[éèê]/gi,   sanitized: 'e' },
+	        { original: /[íìî]/gi,   sanitized: 'i' },
+	        { original: /[ôõóò]/gi,  sanitized: 'o' },
+	        { original: /[úùû]/gi,   sanitized: 'u' },
+	    ];
+
+	    var self = this;
+		    diacritics.forEach(function(i) {
+		      self = self.replace(i.original, i.sanitized);
+		    });
+	    return self.replace(/[^a-zA-Z_-]/g, '').toLowerCase();
+	  	};
+
+	  	frase = frase.sanitize();
+
+		if (frase === 'iluminatti' ||
+			frase === 'ledesma' ||
+			frase === 'dante' ||
+			frase === 'verdemusgo' ||
+			frase === 'bacon') {
 
 			res = true;
 
@@ -138,12 +157,12 @@
 				invert = invert - 1;
 			};
 
-			if(cont == 0){
+			if(cont === 0){
 				res = true;
 			}
 		};
 
-		return res;
+		return frase;
 	}
 	
 </script>
