@@ -66,6 +66,7 @@ tipo img OU que são os últimos filhos no HTML do tipo h3
 
 $("html img:last, html h3:last")
 
+
 /*
 1I
 
