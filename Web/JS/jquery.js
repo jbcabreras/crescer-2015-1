@@ -3,7 +3,7 @@
 Faça uma instrução jQuery que selecione todos elementos com a classe module.
 */
 
-var res = $('.module');
+$('.module');
 
 /*
 1B
@@ -11,7 +11,7 @@ var res = $('.module');
 Faça uma instrução jQuery que selecione o terceiro elemento da lista não ordenada myList.
 */
 
-var res = $('#myList > li:eq(2)');
+$('#myList > li:eq(2)');
 
 /*
 1C
@@ -19,7 +19,7 @@ var res = $('#myList > li:eq(2)');
 Faça uma instrução jQuery que selecione o label para o input de busca usando um seletor de atributo.
 */
 
-var res = $('label[for=q]');
+$('label[for=q]');
 
 /*
 1D
@@ -27,7 +27,7 @@ var res = $('label[for=q]');
 Escreva uma instrução jQuery que encontre quantos elementos na página tem um atributo alt.
 */
 
-var res = $('[alt]').length;
+$('[alt]').length;
 
 /*
 1E
@@ -35,7 +35,7 @@ var res = $('[alt]').length;
 Faça uma instrução jQuery que selecione todas as linhas pares da tabela com exceção do cabeçalho.
 */
 
-var res = $('#fruits tr:even:not(:first-child)');
+$('#fruits tr:even:not(:first-child)');
 
 /*
 1F
@@ -43,7 +43,7 @@ var res = $('#fruits tr:even:not(:first-child)');
 Faça uma instrução jQuery que encontre quantos elementos h2 possuem as letras "B", "e" NO MESMO texto.
 */
 
-$('h2:contains(B):contains(e)')
+$('h2:contains(B):contains(e)').length
 
 /*
 1G
@@ -136,7 +136,7 @@ Faça tudo isso em apenas um encadeamento de chamadas. Ex:
 $('select from html where...').funcao1().funcao2().funcao3().funcao4().funcao5();
 */
 
-
+$("#specials > h2").text('Promoções').parent().find('option[value=friday]').text("Dimitri")
 
 /*
 2E
@@ -149,3 +149,5 @@ Não utilize pseudo-seletores.
 Faça tudo isso em apenas um encadeamento de chamadas. Ex:
 $('select from html where...').funcao1().funcao2().funcao3().funcao4().funcao5();
 */
+
+$('#slideshow li:first').addClass('current').siblings().addClass('disabled')
