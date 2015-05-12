@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+</head>
 <script type="text/javascript">
-	'use strict;'
+	//'use strict;'
 	
 	/*
 	Brewdog
@@ -118,8 +121,7 @@
 		var res = false;
 		var cont = 0;
 		var frase = str.replace( /\s/g, '' ).toLowerCase();
-		var invert = frase.length - 1;
-
+		
 		String.prototype.sanitize = function() {
 	    var diacritics = [
 	        { original: /[âáàã]/gi,  sanitized: 'a' },
@@ -147,6 +149,7 @@
 			res = true;
 
 		}else{
+			var invert = frase.length - 1;
 			for (var i = 0; i < frase.length; i++) {
 				
 				if (frase[i] === frase[invert]){
@@ -161,8 +164,8 @@
 				res = true;
 			}
 		};
-
-		return frase;
+		console.log(frase);
+		return res;
 	}
 	
 </script>
