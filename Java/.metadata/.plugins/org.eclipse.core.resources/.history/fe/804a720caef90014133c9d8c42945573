@@ -1,0 +1,15 @@
+package filmator;
+
+public enum Genero {
+	
+	ACAO("Ação"),
+	COMEDIA("Comédia"),
+	DRAMA("Drama");
+	
+	String descricao;
+	
+	private Genero(String nome){
+		
+		this.descricao = nome;
+	}
+}

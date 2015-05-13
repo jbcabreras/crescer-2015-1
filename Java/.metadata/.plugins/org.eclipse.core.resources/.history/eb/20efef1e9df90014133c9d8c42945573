@@ -1,0 +1,17 @@
+package Filmator;
+
+public class testaFilmator {
+
+	public static void main(String[] args) {
+		
+		Ator a1 = new Ator("Rodrigo");
+		Ator a2 = new Ator("Cassiano");
+		
+		Filme f = new Filme();
+		
+		f.adicionaAtor(a1);
+		
+		System.out.println(f.listaElenco());
+	}
+
+}

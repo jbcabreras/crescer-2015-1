@@ -1,0 +1,19 @@
+package Filmator;
+
+import java.util.ArrayList;
+
+public class Filme {
+	
+	private ArrayList<Ator> elenco;
+	
+	public void adicionaAtor(Ator umAtor){
+		
+		elenco.add(umAtor);
+	}
+	
+	public String listaElenco(){
+		
+		return elenco.listIterator();
+	}
+	
+}

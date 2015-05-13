@@ -1,0 +1,10 @@
+package Filmator;
+
+public class testaFilmator {
+
+	public static void main(String[] args) {
+		
+		Ator a1 = new Ator("Rodrigo");
+	}
+
+}
