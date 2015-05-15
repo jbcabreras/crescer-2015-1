@@ -5,6 +5,7 @@ bin/
 tmp/
 *.tmp
 *.bak
+*.class
 *.swp
 *~.nib
 local.properties
