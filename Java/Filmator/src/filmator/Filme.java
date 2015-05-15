@@ -8,9 +8,19 @@ public class Filme {
 	private StringBuilder lista = new StringBuilder();
 	private StringBuilder procuraAtor = new StringBuilder();
 	private Genero genero;
+	private String nome;
+	
+	public Filme(String umNome, Genero umGenero){
+		this.nome = umNome;
+		this.genero = umGenero;
+	}
 		
 	public Genero getGenero() {
 		return genero;
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
 	public void setGenero(Genero genero) {

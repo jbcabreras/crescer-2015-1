@@ -1,0 +1,23 @@
+package filmator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Netflox {
+
+	private HashMap<String, Filme> listaFilmes = new HashMap<>();
+		
+	public void adicionaFilme(String umNome, Filme umFilme){
+		if(listaFilmes.containsKey(umNome) == false)
+			listaFilmes.put(umNome, umFilme);
+	}
+	
+	public boolean localizaFilme(String nome){
+		
+		return listaFilmes.containsKey(nome);
+	}
+	
+	public void reproduzirFilme(Filme umFilme){
+		
+	}
+}

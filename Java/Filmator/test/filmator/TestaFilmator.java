@@ -3,6 +3,7 @@ package filmator;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.Test;
 
@@ -29,7 +30,7 @@ public class TestaFilmator {
 		
 		String esperado = "Rodrigo FrohlichRodrigo testeCassiano";
 		
-		Filme f = new Filme();
+		Filme f = new Filme("Teste", Genero.ACAO);
 		
 		f.adicionaAtor(a1);
 		f.adicionaAtor(a2);
@@ -50,7 +51,7 @@ public class TestaFilmator {
 		esperado.add(a2);
 		esperado.add(a3);
 		
-		Filme filme = new Filme();
+		Filme filme = new Filme("Mais um Teste", Genero.COMEDIA);
 		
 		filme.adicionaAtor(a1);
 		filme.adicionaAtor(a2);
@@ -68,7 +69,7 @@ public class TestaFilmator {
 		Ator a2 = new Ator("Rodrigo teste");
 		Ator a3 = new Ator("Cassiano");
 						
-		Filme filme = new Filme();
+		Filme filme = new Filme("outro teste", Genero.DRAMA);
 		
 		filme.adicionaAtor(a1);
 		filme.adicionaAtor(a2);
@@ -76,4 +77,137 @@ public class TestaFilmator {
 		
 		assertEquals(esperado, filme.procuraAtor("rodrigo"));
 	}
+	
+	@Test
+	public void testaListaFilmes() throws Exception {
+		
+		Filme f1 = new Filme("apenas mais um Filme", Genero.DRAMA);
+		Filme f2 = new Filme("um Filme", Genero.DRAMA);
+		Filme f3 = new Filme("mais um filme", Genero.DRAMA);
+		Filme f4 = new Filme("outro filme", Genero.DRAMA);
+		
+		HashMap<String, Filme> esperado = new HashMap<String, Filme>();
+		
+		esperado.put("apenas mais um Filme", f1);
+		esperado.put("outro filme", f4);
+		esperado.put("um Filme", f2);
+		esperado.put("mais um filme", f3);
+		
+		Netflox nf = new Netflox();
+		
+		nf.adicionaFilme("apenas mais um Filme", f1);
+		nf.adicionaFilme("mais um filme", f3);
+		nf.adicionaFilme("um Filme", f2);
+		nf.adicionaFilme("outro filme", f4);
+		
+		assertEquals(esperado.keySet(), nf.getKeySet());
+	}
+	
+	@Test
+	public void testaReproduzirFilmeQueNaoEstaNoCatalogo() throws Exception {
+		
+		Filme f1 = new Filme("apenas mais um Filme", Genero.DRAMA);
+		Filme f2 = new Filme("um Filme", Genero.DRAMA);
+		Filme f3 = new Filme("mais um filme", Genero.DRAMA);
+		Filme f4 = new Filme("outro filme", Genero.DRAMA);
+		
+		boolean esperado = false;
+		
+		Netflox nf = new Netflox();
+		
+		nf.adicionaFilme("apenas mais um Filme", f1);
+		nf.adicionaFilme("mais um filme", f3);
+		nf.adicionaFilme("um Filme", f2);
+		
+		assertEquals(esperado, nf.reproduzirFilme(f4));
+	}
+	
+	@Test
+	public void testaReproduzirFilmeQueEstaNoCatalogo() throws Exception {
+		
+		Filme f1 = new Filme("apenas mais um Filme", Genero.DRAMA);
+		Filme f2 = new Filme("um Filme", Genero.DRAMA);
+		Filme f3 = new Filme("mais um filme", Genero.DRAMA);
+		Filme f4 = new Filme("outro filme", Genero.DRAMA);
+		
+		boolean esperado = true;
+		
+		Netflox nf = new Netflox();
+		
+		nf.adicionaFilme("apenas mais um Filme", f1);
+		nf.adicionaFilme("mais um filme", f3);
+		nf.adicionaFilme("um Filme", f2);
+		
+		assertEquals(esperado, nf.reproduzirFilme(f2));
+	}
+	
+	@Test
+	public void testaGerarRelatorioComNenumaReproducao() throws Exception {
+		
+		String esperado = "acao = 0comedia = 0drama = 0";
+		
+		Netflox nf = new Netflox();
+		
+		assertEquals(esperado, nf.gerarRelatorio());
+	}
+	
+	@Test
+	public void testaGerarRelatorioComUmaReproducaoDeCada() throws Exception {
+		
+		Filme f1 = new Filme("apenas mais um Filme", Genero.ACAO);
+		Filme f2 = new Filme("um Filme", Genero.COMEDIA);
+		Filme f3 = new Filme("mais um filme", Genero.DRAMA);
+		
+		String esperado = "acao = 1comedia = 1drama = 1";
+		
+		Netflox nf = new Netflox();
+		
+		nf.adicionaFilme("apenas mais um Filme", f1);
+		nf.adicionaFilme("mais um filme", f3);
+		nf.adicionaFilme("um Filme", f2);
+		
+		nf.reproduzirFilme(f2);
+		nf.reproduzirFilme(f1);
+		nf.reproduzirFilme(f3);
+		
+		
+		assertEquals(esperado, nf.gerarRelatorio());
+	}
+	
+	@Test
+	public void testaGerarRelatorioCom5ReproducoesDeCada() throws Exception {
+		
+		Filme f1 = new Filme("apenas mais um Filme", Genero.ACAO);
+		Filme f2 = new Filme("um Filme", Genero.COMEDIA);
+		Filme f3 = new Filme("mais um filme", Genero.DRAMA);
+		
+		String esperado = "acao = 5comedia = 5drama = 5";
+		
+		Netflox nf = new Netflox();
+		
+		nf.adicionaFilme("apenas mais um Filme", f1);
+		nf.adicionaFilme("mais um filme", f3);
+		nf.adicionaFilme("um Filme", f2);
+		
+		nf.reproduzirFilme(f2);
+		nf.reproduzirFilme(f2);
+		nf.reproduzirFilme(f2);
+		nf.reproduzirFilme(f2);
+		nf.reproduzirFilme(f2);
+		
+		nf.reproduzirFilme(f1);
+		nf.reproduzirFilme(f1);
+		nf.reproduzirFilme(f1);
+		nf.reproduzirFilme(f1);
+		nf.reproduzirFilme(f1);
+		
+		nf.reproduzirFilme(f3);
+		nf.reproduzirFilme(f3);
+		nf.reproduzirFilme(f3);
+		nf.reproduzirFilme(f3);
+		nf.reproduzirFilme(f3);
+		
+		assertEquals(esperado, nf.gerarRelatorio());
+	}
+	
 }

@@ -1,0 +1,49 @@
+package filmator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+
+public class Netflox {
+
+	private HashMap<String, Filme> listaFilmes = new HashMap<>();
+	private HashMap<Genero, int> contador = new HashMap<>();
+		
+	public void adicionaFilme(String umNome, Filme umFilme){
+		
+		if(listaFilmes.containsKey(umNome) == false)
+			listaFilmes.put(umNome, umFilme);
+	}
+	
+	public Set<String> getKeySet(){
+		return listaFilmes.keySet();
+	}
+	
+	public boolean localizaFilme(String nome){
+		
+		return listaFilmes.containsKey(nome);
+	}
+	
+	public boolean reproduzirFilme(Filme umFilme){
+		boolean reproduz = false;
+		
+		if(listaFilmes.containsKey(umFilme.getNome())){
+			
+			reproduz = true;
+			
+			switch(umFilme.getGenero()){
+				
+				case Genero.ACAO:	
+					
+		
+			}
+			
+		}
+		
+		return reproduz;
+	}
+	
+	public String gerarRelatorio(){
+		
+	}
+}
