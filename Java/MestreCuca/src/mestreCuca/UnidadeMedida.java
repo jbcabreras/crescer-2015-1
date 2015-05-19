@@ -2,7 +2,17 @@ package mestreCuca;
 
 public enum UnidadeMedida {
 	
-	GRAMA, UNIDADE, XICARA, COLHER_SOPA
+	GRAMA("grama"), 
+	UNIDADE("unidade"), 
+	XICARA("xicara");
+	
+	String nome;
+	
+	private UnidadeMedida(String nome){
+		this.nome = nome;
+	}
 }
+
+
 
 
