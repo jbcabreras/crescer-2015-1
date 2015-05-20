@@ -14,6 +14,7 @@ public class CadernoReceitas implements LivroReceitas {
 	public List<String> listaCompras(List<Receita> receitas){
 		
 		List<Ingrediente> listaIng = new ArrayList<Ingrediente>();
+		List<Ingrediente> listaFinal = new ArrayList<Ingrediente>();
 		List<String> listaCompras = new ArrayList<String>();
 				
  		for (Receita receita : receitas) {
@@ -21,25 +22,30 @@ public class CadernoReceitas implements LivroReceitas {
 			for(Ingrediente ingrediente : receita.getIngredientes()){
 				
 				
-				if(){
+				if(listaIng.isEmpty()){
+					
+					listaIng.add(ingrediente);
+					listaFinal.add(ingrediente);
 					
 				}else{
 					for (Ingrediente ing : listaIng) {
 						
-						if(!ing.getNome().equals(ingrediente.getNome())){
+						if(!ing.getNome().contains(ingrediente.getNome())){
 							
-							listaIng.add(ing);
+							listaFinal.add(ingrediente);
+							
 						}else{
 							if(ing.getUnidade().equals(ingrediente.getUnidade())){
 								
 								double qtd = ing.getQuantidade() + ingrediente.getQuantidade();
 								
 								ing.setQuantidade(qtd);
+								
+								listaFinal.add(ing);
 							}
 						}
 					}
 				}
-				
 			}
 		}
  		

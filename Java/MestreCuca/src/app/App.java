@@ -23,6 +23,9 @@ public class App {
 		Receita rec1 = new Receita("rec1");
 		Receita rec2 = new Receita("rec2");
 		Receita rec3 = new Receita("rec3");
+		Receita rec4 = new Receita("rec4");
+		Receita rec5 = new Receita("rec5");
+		Receita rec6 = new Receita("rec6");
 		
 		Instrucao inst1 = new Instrucao("instrucao 1");
 		Instrucao inst2 = new Instrucao("instrucao 2");
