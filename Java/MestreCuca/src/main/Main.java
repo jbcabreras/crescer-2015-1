@@ -1,4 +1,4 @@
-package app;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import mestreCuca.Instrucao;
 import mestreCuca.Receita;
 import mestreCuca.UnidadeMedida;
 
-public class App {
+public class Main {
 
 	public static void main(String[] args) {
 
@@ -43,6 +43,18 @@ public class App {
 		rec3.setIngredientes(leite);
 		rec3.setIngredientes(banana);
 		
+		rec4.setIngredientes(pao);
+		rec4.setIngredientes(leite);
+		rec4.setIngredientes(banana);
+		
+		rec5.setIngredientes(pao);
+		rec5.setIngredientes(leite);
+		rec5.setIngredientes(banana);
+		
+		rec6.setIngredientes(pao);
+		rec6.setIngredientes(leite);
+		rec6.setIngredientes(banana);
+		
 		rec1.setInstrucoes(inst1);
 		rec1.setInstrucoes(inst2);
 		
@@ -58,6 +70,9 @@ public class App {
 		listaRec.add(rec1);
 		listaRec.add(rec2);
 		listaRec.add(rec3);
+		listaRec.add(rec4);
+		listaRec.add(rec5);
+		listaRec.add(rec6);
 		
 		CadernoReceitas caderno = new CadernoReceitas();
 		caderno.inserir(rec1);
