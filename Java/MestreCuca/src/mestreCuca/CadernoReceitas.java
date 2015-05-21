@@ -21,7 +21,6 @@ public class CadernoReceitas implements LivroReceitas {
 			
 			for(Ingrediente ingrediente : receita.getIngredientes()){
 				
-				
 				if(listaIng.isEmpty()){
 					
 					listaIng.add(ingrediente);
@@ -48,6 +47,19 @@ public class CadernoReceitas implements LivroReceitas {
 				}
 			}
 		}
+ 		
+// 		public Map<Ingrediente, Double> geraListaDeCompras(List<Receita> receitas) {
+// 			Map<Ingrediente, Double> listaDeCompras = new HashMap<>();
+// 			for(Receita receita : receitas){
+// 				for(Ingrediente ingrediente : receita.getIngredientes()){
+// 					double quantidadeAcumulada = listaDeCompras.getOrDefault(ingrediente, 0.0);
+// 					double quantidadeDoIngrediente = ingrediente.getQuantidade();
+// 					listaDeCompras.put(ingrediente, quantidadeAcumulada + quantidadeDoIngrediente);
+// 				}
+// 			}
+// 			return listaDeCompras;
+// 			
+// 		}
  		
  		for (Ingrediente ingrediente : listaIng) {
 			listaCompras.add(ingrediente.getQuantidade() + " " + ingrediente.getUnidade() + " de " + ingrediente.getNome() );
