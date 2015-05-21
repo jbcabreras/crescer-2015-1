@@ -1,19 +1,21 @@
 package mestrecuca;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import mestrecuca.model.Ingrediente;
-import mestrecuca.model.Receita;
-import mestrecuca.model.UnidadeMedida;
+import mestreCuca.Ingrediente;
+import mestreCuca.Receita;
+import mestreCuca.ReceitaNaoEncontradaException;
+import mestreCuca.UnidadeMedida;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class LivroDaVovoTest {
+public class CadernoReceitasTest {
 
 	private LivroDaVovo livro;
 	

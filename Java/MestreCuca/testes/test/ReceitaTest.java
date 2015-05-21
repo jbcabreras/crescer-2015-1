@@ -1,9 +1,9 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import mestrecuca.model.Ingrediente;
-import mestrecuca.model.Receita;
-import mestrecuca.model.UnidadeMedida;
+import mestreCuca.Ingrediente;
+import mestreCuca.Receita;
+import mestreCuca.UnidadeMedida;
 
 import org.junit.Test;
 
