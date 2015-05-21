@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+  
+  <script>
+$(function(){
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/autentica',
+          type: 'POST',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ nome: 'Rodrigo' })      
+         });
+   
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ nome: 'Rodrigo' })      
+         });
+
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+          type: 'POST',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ resposta:  '10' })      
+         });
+
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ resposta:  '10' })      
+         });
+
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+          type: 'POST',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ resposta:  '186' })      
+         });
+
+        $.ajax({
+          url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: JSON.stringify({ resposta:  '186' })      
+         }).done(function(res){
+
+            var resultado = res.dados;
+            var soma = 0;
+
+            resultado.forEach(function(i){
+                soma = soma + i;
+            })
+
+            var total = { resposta:  soma };
+
+            $.ajax({
+            url: 'http://illuminati.instaweb.com.br:6789/exercicios?token=890180624f2b',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify( total )      
+           })
+         });
+
+        
+         })
+
+
+  </script>
+</body>
+</html>
