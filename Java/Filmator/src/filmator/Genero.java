@@ -2,8 +2,8 @@ package filmator;
 
 public enum Genero {
 	
-	ACAO("Ação"),
-	COMEDIA("Comédia"),
+	ACAO("Aï¿½ï¿½o"),
+	COMEDIA("Comï¿½dia"),
 	DRAMA("Drama");
 	
 	String nome;

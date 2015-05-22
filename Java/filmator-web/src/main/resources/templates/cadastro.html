@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cadastro de Filmes</title>
+</head>
+<body>
+	<div style="margin: 0 auto; text-align: center; width: 500px; height: 450px; border: 1px solid black">
+		<form action = "/salvar" method = "POST" name = "pgSalvar">
+	        <h1>Cadastrar Filme:</h1>
+
+	            Nome:* <br>
+	            <input type="text" name="nome" required="required" maxlength="62"/><br><br>                               
+	            Gênero:* <br>
+	            <select name="genero" required="required">
+	                <option value="">Selecione uma opcao</option>';
+	                {{#todosGeneros}}
+	                <option value="{{.}}">{{nomeGenero}}</option>
+	                {{/todosGeneros}}
+	            </select><br><br>
+
+	            Ano de Lancamento:* <br>
+	            <input type="number" name="ano" required="required" maxlength="4"/><br><br>
+	            
+	            Sinopse:* <br>
+	            <textarea name="sinopse" required="required" maxlength="1000"></textarea><br><br>
+
+	            URL da imagem:* <br>
+	            <input type="text" name="url" required="required" maxlength="62"/><br><br>
+
+	            <input type="submit" name="bIncluir" value="incluir" class="buscar1">
+		</form>
+	</div>
+</body>
+</html>

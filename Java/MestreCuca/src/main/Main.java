@@ -6,6 +6,7 @@ import java.util.List;
 import mestreCuca.CadernoReceitas;
 import mestreCuca.Ingrediente;
 import mestreCuca.Instrucao;
+import mestreCuca.LivroReceitasJson;
 import mestreCuca.Receita;
 import mestreCuca.UnidadeMedida;
 
@@ -83,26 +84,35 @@ public class Main {
 		alergicos.add(ovo);
 		alergicos.add(banana);
 		
-		
-		System.out.println(caderno.getTodasReceitas());		
-		System.out.println(caderno.buscaReceitaPeloNome("rec1"));
-		System.out.println(rec1.getValorTotal());
-		System.out.println(caderno.calculaValorTotalReceitas(caderno.getTodasReceitas()));
-		System.out.println(caderno.retornaSemAlergicos(alergicos));
-		
+//		
+//		System.out.println(caderno.getTodasReceitas());		
+//		System.out.println(caderno.buscaReceitaPeloNome("rec1"));
+//		System.out.println(rec1.getValorTotal());
+//		System.out.println(caderno.calculaValorTotalReceitas(caderno.getTodasReceitas()));
+//		System.out.println(caderno.retornaSemAlergicos(alergicos));
+//		
 //		for (String linha : caderno.listaCompras(listaRec)) {
 //			System.out.println(linha);
 //		}
 		
-		List<String> umaLista = new ArrayList<String>();
+//		List<String> umaLista = new ArrayList<String>();
+//		
+//		umaLista = caderno.listaCompras(listaRec);
+//		
+//		for (String string : umaLista) {
+//			
+//			System.out.println(string);
+//			
+//		}
 		
-		umaLista = caderno.listaCompras(listaRec);
+		String caminho = "d:\\temp\\";
 		
-		for (String string : umaLista) {
-			
-			System.out.println(string);
-			
-		}
+		LivroReceitasJson livro = new LivroReceitasJson(caminho);
+		
+		livro.inserir(rec1);
+		livro.inserir(rec2);
+		livro.inserir(rec3);
+		
 		
 	}
 
