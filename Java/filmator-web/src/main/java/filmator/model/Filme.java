@@ -14,28 +14,47 @@ public class Filme {
 	public Filme(String nome, Genero genero, String ano, String sinopse, String url){
 		this.nome = nome;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public Genero getGenero() {
 		return genero;
 	}
-	
+
+	public void setGenero(String genero) {
+		this.genero = Genero.valueOf(genero);
+	}
+
 	public String getAno() {
 		return ano;
 	}
-	
+
+	public void setAno(String ano) {
+		this.ano = ano;
+	}
+
 	public String getSinopse() {
 		return sinopse;
 	}
-	
+
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
+
 	public String getUrl() {
 		return url;
 	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
+	
 }
