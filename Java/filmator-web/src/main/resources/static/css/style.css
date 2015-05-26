@@ -1,0 +1,43 @@
+/*
+ * style.css
+ */
+body {
+ 	padding-top: 10px;
+}
+
+header {
+	text-align: center;
+}
+
+.filmes {
+	margin-top: 20px;
+}
+
+.espaco {
+	margin-top: 20px;
+}
+
+.consulta-pad {
+	padding: 0px; 
+}
+
+.larg {
+	width: 67% !important;
+}
+
+.editar {
+	position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.excluir {
+	position: absolute;
+    right: 50px;
+    bottom: 5px;
+}
+
+#desc {
+	background-color: #DADADA;
+	height: 200px;
+}
