@@ -15,19 +15,19 @@ import filmator.model.Genero;
 
 @Controller
 public class HomeController {
-
-	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String home(Model model) {
-//		FilmeDao dao = new FilmeDao();
-//		model.addAttribute("mensagem", "fulano de tal");
-//		model.addAttribute("millisegundos", System.currentTimeMillis());
-//		model.addAttribute("filmes",  dao.buscaTodosFilmes());
-//		return "nomeDoArquivo";
-//	}
 	
 	@Inject
 	private FilmeDao filmeDao;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "index";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Model model) {
+		return "home";
+	}
 	
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public String cadastro(Model model) {
@@ -49,6 +49,18 @@ public class HomeController {
 	
 	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
 	public String buscar(String nome, Model model) {
+		model.addAttribute("buscaFilmes", filmeDao.buscaFilmeNome(nome));
+		return "consulta";
+	}
+	
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editar(String nome, Model model) {
+		model.addAttribute("buscaFilmes", filmeDao.buscaFilmeNome(nome));
+		return "consulta";
+	}
+	
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
+	public String excluir(String nome, Model model) {
 		model.addAttribute("buscaFilmes", filmeDao.buscaFilmeNome(nome));
 		return "consulta";
 	}

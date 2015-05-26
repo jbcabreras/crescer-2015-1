@@ -31,15 +31,6 @@ public class FilmeDao {
 				filme.getUrl());
 		}
 		
-//		public List<Filme> inserir(Filme filme){
-//			ResultSet res = jdbcTemplate.execute("select * from filmes");
-//				
-//			while(result.next()){
-//			    res.getString("nome"));
-//			}
-//			
-//			
-//		}
 
 		public List<Filme> buscaTodosFilmesJava8(){
 			return jdbcTemplate.query("SELECT * FROM Filmes", (ResultSet rs, int rownum ) -> {	

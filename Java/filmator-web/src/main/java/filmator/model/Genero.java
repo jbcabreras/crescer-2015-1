@@ -3,8 +3,13 @@ package filmator.model;
 public enum Genero {
 	
 	ACAO("Ação"),
+	AVENTURA("Aventura"),
 	COMEDIA("Comédia"),
-	DRAMA("Drama");
+	DRAMA("Drama"),
+	FICCAO("Ficção"),
+	SUSPENSE("Suspense"),
+	TERROR("Terror");
+	
 	
 	String nomeGenero;
 	

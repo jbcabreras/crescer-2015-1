@@ -2,25 +2,70 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 	<title>Consulta de Filmes</title>
 </head>
 <body>
-    <div style="margin: 0 auto; text-align: center; width: 500px; height: 500px; border: 1px solid black">
-    	<form action = "/buscar" method = "POST" name = "pgConsultar">
-            <h1>Consultar Filme:</h1>
+	<div class="container-fluid consulta-pad">
+		<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<ul class="nav nav-tabs">
+					  <li role="presentation" ><a href="/home">Home</a></li>
+					  <li role="presentation" ><a href="/cadastro">Cadastro</a></li>
+					  <li role="presentation" class="active"><a href="/consulta">Consulta</a></li>
+					  
+					</ul>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		<div class="row espaco">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				
+					<form action = "/buscar" method = "POST" name = "pgConsultar" class="form-inline">
+						<input type="text" name="nome" required="required" maxlength="62" class="form-control larg">
+						<button name="buscar" class="btn btn-primary" > Localizar Filme
+							 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+						</button> 
+					</form>
+				
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		{{#buscaFilmes}}
+		<div class="row">
+			<div role="main">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					
+					<div class="filmes">
+						<div class="col-md-8" id="desc">
+							<h3>{{nome}} ({{ano}})</h3>
+							<strong><i>Gênero: </i></strong> {{genero}} - {{sinopse}}
 
-                Nome:* <br>
-                <input type="text" name="nome" required="required" maxlength="62"/>
-                <input type="submit" name="buscar" value="Localizar">
-                
-                <br><br>
-                
-                <ul>
-					{{#buscaFilmes}}
-					<li>{{nome}}</li>
-					{{/buscaFilmes}}
-				</ul>
-    	</form>
-    </div>
+							<button name="excluir" class="btn btn-warning editar">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							</button>
+							<button name="excluir" class="btn btn-danger excluir">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</button>
+						</div>
+						<div class="col-md-4">
+							<img src="{{url}}" height="200px">
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		{{/buscaFilmes}}
+	    </div>
+	</div>
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
