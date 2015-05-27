@@ -32,18 +32,24 @@
 						<form action="/inserir" method="POST" name="pgSalvar"
 							class="form-group">
 							Nome:* <br> <input type="text" name="nome"
-							required="required" maxlength="62" class="form-control"><br>
+							required="required" maxlength="100" class="form-control"><br>
+
 							Gênero:* <br> 
 							<select name="genero" required="required"
 								class="form-control">
 								<option value="">Selecione uma opcao</option> {{#todosGeneros}}
 								<option value="{{.}}">{{nomeGenero}}</option> {{/todosGeneros}}
-							</select><br> Ano de Lancamento:* <br> <input type="number"
+							</select><br> 
+
+							Ano de Lancamento:* <br> <input type="number"
 							name="ano" required="required" maxlength="4" class="form-control"><br>
+
 							Sinopse:* <br>
 							<textarea name="sinopse" required="required" maxlength="1000"
 							class="form-control"></textarea>
-							<br> URL da imagem:* <br> <input type="text" name="url"
+							<br> 
+
+							URL da imagem:* <br> <input type="text" name="url"
 							required="required" maxlength="512" class="form-control"><br>
 							<button name="bIncluir" class="btn btn-primary">
 							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inserir Filme

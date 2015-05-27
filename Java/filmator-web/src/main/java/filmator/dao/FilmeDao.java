@@ -59,6 +59,33 @@ public class FilmeDao {
 			}, "%" + nome + "%");	
 		}
 		
+		public List<Filme> buscaCapasGenero(){
+			return jdbcTemplate.query("SELECT idfilme, nome, genero, url FROM filmes WHERE idfilme IN ("
+					+ "SELECT Max(idfilme) FROM filmes GROUP BY genero order by genero asc)", (ResultSet rs, int rownum ) -> {	
+				Filme filme = new Filme();
+				filme.setGenero(rs.getString("genero"));
+				filme.setUrl(rs.getString("url"));
+				
+				return filme;
+				
+			});	
+		}
+		
+		public List<Filme> buscaFilmesGenero(String genero){
+			return jdbcTemplate.query("SELECT idfilme, nome, genero, url FROM filmes WHERE idfilme IN ("
+					+ "SELECT Max(idfilme) FROM filmes GROUP BY genero order by genero asc)", (ResultSet rs, int rownum ) -> {	
+				Filme filme = new Filme();
+				filme.setNome(rs.getString("nome"));
+				filme.setGenero(rs.getString("genero"));
+				filme.setAno(rs.getString("anolanc"));
+				filme.setSinopse(rs.getString("sinopse"));
+				filme.setUrl(rs.getString("url"));
+				
+				return filme;
+				
+			}, genero.toUpperCase());	
+		}
+		
 		
 		
 	

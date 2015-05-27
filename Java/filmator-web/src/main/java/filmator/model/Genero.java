@@ -8,6 +8,7 @@ public enum Genero {
 	DRAMA("Drama"),
 	FICCAO("Ficção"),
 	SUSPENSE("Suspense"),
+	POLICIAL("Policial"),
 	TERROR("Terror");
 	
 	
