@@ -82,13 +82,15 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    
                     <form action="/template/inserir" method="POST" name="pgSalvar" class="form-group">
+
+                        <input type="hidden" name="idFilme" value="{{#editarFilme}}{{idFilme}}{{/editarFilme}}">
+
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nome</label>
-                                <input type="text" name="nome" maxlength="100" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" value="{{#editarFilme}}{{nome}}{{/editarFilme}}" name="nome" maxlength="100" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -107,21 +109,21 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Ano de Lançamento</label>
-                                <input type="number" name="ano" maxlength="4" class="form-control" placeholder="Lançamento" id="phone" required data-validation-required-message="Favor inserir o ano de lançamento.">
+                                <input type="number" value="{{#editarFilme}}{{ano}}{{/editarFilme}}" name="ano" maxlength="4" class="form-control" placeholder="Lançamento" id="phone" required data-validation-required-message="Favor inserir o ano de lançamento.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Sinopse</label>
-                                <textarea rows="5" maxlength="1000" name="sinopse" class="form-control" placeholder="Sinopse" id="message" required data-validation-required-message="Favor inserir a sinopse."></textarea>
+                                <textarea rows="5" maxlength="1000" name="sinopse" class="form-control" placeholder="Sinopse" id="message" required data-validation-required-message="Favor inserir a sinopse.">{{#editarFilme}}{{sinopse}}{{/editarFilme}}</textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>URL</label>
-                                <input type="text" name="url" maxlength="512" class="form-control" placeholder="URL" id="message" required data-validation-required-message="Favor inserir URL."></textarea>
+                                <input type="text" name="url" value="{{#editarFilme}}{{url}}{{/editarFilme}}" maxlength="512" class="form-control" placeholder="URL" id="message" required data-validation-required-message="Favor inserir URL.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -135,6 +137,7 @@
                             </div>
                         </div>
                     </form>
+                   
                 </div>
             </div>
         </div>

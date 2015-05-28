@@ -1,7 +1,8 @@
 package filmator.model;
 
 public class Filme {
-
+	
+	private Integer idFilme;
 	private String nome;
 	private Genero genero;
 	private String ano;
@@ -13,6 +14,14 @@ public class Filme {
 	
 	public Filme(String nome, Genero genero, String ano, String sinopse, String url){
 		this.nome = nome;
+	}
+	
+	public Integer getIdFilme() {
+		return idFilme;
+	}
+
+	public void setIdFilme(Integer idFilme) {
+		this.idFilme = idFilme;
 	}
 
 	public String getNome() {

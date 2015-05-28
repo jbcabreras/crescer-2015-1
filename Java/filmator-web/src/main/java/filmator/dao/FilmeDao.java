@@ -31,6 +31,21 @@ public class FilmeDao {
 				filme.getUrl());
 		}
 		
+		public void atualizar(Filme filme){
+			jdbcTemplate.update("update filmes set nome = ?, genero = ?, anolanc= ?, sinopse = ?, url = ? where idfilme = ?",
+					filme.getNome(),
+					filme.getGenero().name(),
+					filme.getAno(),
+					filme.getSinopse(),
+					filme.getUrl(),
+					filme.getIdFilme());
+		}
+		
+		public void excluir(String id){
+			jdbcTemplate.update("delete from filmes where idfilme = ?", id);
+		
+		}
+		
 
 		public List<Filme> buscaTodosFilmesJava8(){
 			return jdbcTemplate.query("SELECT * FROM Filmes", (ResultSet rs, int rownum ) -> {	
@@ -48,6 +63,7 @@ public class FilmeDao {
 		public List<Filme> buscaFilmeNome(String nome){
 			return jdbcTemplate.query("SELECT * FROM Filmes where upper(nome) like ?", (ResultSet rs, int rownum ) -> {	
 				Filme filme = new Filme();
+				filme.setIdFilme(rs.getInt("idfilme"));
 				filme.setNome(rs.getString("nome"));
 				filme.setGenero(rs.getString("genero"));
 				filme.setAno(rs.getString("anolanc"));
@@ -57,6 +73,21 @@ public class FilmeDao {
 				return filme;
 				
 			}, "%" + nome.toUpperCase() + "%");	
+		}
+		
+		public Filme buscaFilmeId(String id){
+			return jdbcTemplate.queryForObject("SELECT * FROM Filmes where idfilme = ?", (ResultSet rs, int rownum ) -> {	
+				Filme filme = new Filme();
+				filme.setIdFilme(rs.getInt("idfilme"));
+				filme.setNome(rs.getString("nome"));
+				filme.setGenero(rs.getString("genero"));
+				filme.setAno(rs.getString("anolanc"));
+				filme.setSinopse(rs.getString("sinopse"));
+				filme.setUrl(rs.getString("url"));
+				
+				return filme;
+				
+			}, id);	
 		}
 		
 		public List<Filme> buscaCapasGenero(){
@@ -75,6 +106,7 @@ public class FilmeDao {
 			return jdbcTemplate.query("SELECT idfilme, nome, genero, anolanc, sinopse, url FROM filmes WHERE genero = ? "
 					+ "order by nome asc", (ResultSet rs, int rownum ) -> {	
 				Filme filme = new Filme();
+				filme.setIdFilme(rs.getInt("idfilme"));
 				filme.setNome(rs.getString("nome"));
 				filme.setGenero(rs.getString("genero"));
 				filme.setAno(rs.getString("anolanc"));
