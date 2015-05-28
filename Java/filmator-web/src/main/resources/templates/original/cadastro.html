@@ -14,9 +14,9 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<ul class="nav nav-tabs">
-					  <li role="presentation" ><a href="/home">Home</a></li>
-					  <li role="presentation" class="active"><a href="/cadastro">Cadastro</a></li>
-					  <li role="presentation"><a href="/consulta">Consulta</a></li>
+					  <li role="presentation" ><a href="/original/home">Home</a></li>
+					  <li role="presentation" class="active"><a href="/original/cadastro">Cadastro</a></li>
+					  <li role="presentation"><a href="/original/consulta">Consulta</a></li>
 					  
 					</ul>
 				</div>
@@ -31,17 +31,21 @@
 					<div class="col-md-8">
 						<form action="/inserir" method="POST" name="pgSalvar"
 							class="form-group">
-							Nome:* <br> <input type="text" name="nome"
+							Nome:* <br> 
+							<input type="text" name="nome"
 							required="required" maxlength="100" class="form-control"><br>
 
 							Gênero:* <br> 
 							<select name="genero" required="required"
 								class="form-control">
-								<option value="">Selecione uma opcao</option> {{#todosGeneros}}
-								<option value="{{.}}">{{nomeGenero}}</option> {{/todosGeneros}}
+								<option value="">Selecione uma opcao</option> 
+								{{#todosGeneros}}
+									<option value="{{.}}">{{nomeGenero}}</option> 
+								{{/todosGeneros}}
 							</select><br> 
 
-							Ano de Lancamento:* <br> <input type="number"
+							Ano de Lancamento:* <br> 
+							<input type="number"
 							name="ano" required="required" maxlength="4" class="form-control"><br>
 
 							Sinopse:* <br>
@@ -49,8 +53,8 @@
 							class="form-control"></textarea>
 							<br> 
 
-							URL da imagem:* <br> <input type="text" name="url"
-							required="required" maxlength="512" class="form-control"><br>
+							URL da imagem:* <br> 
+							<input type="text" name="url" required="required" maxlength="512" class="form-control"><br>
 							<button name="bIncluir" class="btn btn-primary">
 							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inserir Filme
 							</button>

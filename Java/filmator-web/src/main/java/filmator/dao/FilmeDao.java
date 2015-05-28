@@ -46,7 +46,7 @@ public class FilmeDao {
 		}
 		
 		public List<Filme> buscaFilmeNome(String nome){
-			return jdbcTemplate.query("SELECT * FROM Filmes where nome like ?", (ResultSet rs, int rownum ) -> {	
+			return jdbcTemplate.query("SELECT * FROM Filmes where upper(nome) like ?", (ResultSet rs, int rownum ) -> {	
 				Filme filme = new Filme();
 				filme.setNome(rs.getString("nome"));
 				filme.setGenero(rs.getString("genero"));
@@ -56,7 +56,7 @@ public class FilmeDao {
 				
 				return filme;
 				
-			}, "%" + nome + "%");	
+			}, "%" + nome.toUpperCase() + "%");	
 		}
 		
 		public List<Filme> buscaCapasGenero(){
@@ -72,8 +72,8 @@ public class FilmeDao {
 		}
 		
 		public List<Filme> buscaFilmesGenero(String genero){
-			return jdbcTemplate.query("SELECT idfilme, nome, genero, url FROM filmes WHERE idfilme IN ("
-					+ "SELECT Max(idfilme) FROM filmes GROUP BY genero order by genero asc)", (ResultSet rs, int rownum ) -> {	
+			return jdbcTemplate.query("SELECT idfilme, nome, genero, anolanc, sinopse, url FROM filmes WHERE genero = ? "
+					+ "order by nome asc", (ResultSet rs, int rownum ) -> {	
 				Filme filme = new Filme();
 				filme.setNome(rs.getString("nome"));
 				filme.setGenero(rs.getString("genero"));

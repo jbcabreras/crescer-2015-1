@@ -13,28 +13,15 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<ul class="nav nav-tabs">
-					  <li role="presentation" ><a href="/home">Home</a></li>
-					  <li role="presentation" ><a href="/cadastro">Cadastro</a></li>
-					  <li role="presentation" class="active"><a href="/consulta">Consulta</a></li>
+					  <li role="presentation" ><a href="/original/home">Home</a></li>
+					  <li role="presentation" ><a href="/original/cadastro">Cadastro</a></li>
+					  <li role="presentation" class="active"><a href="/original/consulta">Consulta</a></li>
 					  
 					</ul>
 				</div>
 				<div class="col-md-2"></div>
 			</div>
-		<div class="row espaco">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				
-					<form action = "/buscar" method = "POST" name = "pgConsultar" class="form-inline">
-						<input type="text" name="nome" required="required" maxlength="62" class="form-control larg">
-						<button name="buscar" class="btn btn-primary" > Localizar Filme
-							 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
-						</button> 
-					</form>
-				
-			</div>
-			<div class="col-md-2"></div>
-		</div>
+		
 		{{#buscaFilmes}}
 		<div class="row">
 			<div role="main">
