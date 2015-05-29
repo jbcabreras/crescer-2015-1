@@ -1,6 +1,7 @@
 package filmator.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,16 +35,17 @@ public class IndexController {
 	@RequestMapping(value = "/template/registrar", method = RequestMethod.POST)
 	public String regUsuariot(Model model, Usuario user) {
 		userDao.inserir(user);
-		return "template/index";
+		return "template/sucesso";
 	}
 	
 	@RequestMapping(value = "/template/logar", method = RequestMethod.POST)
-	public String logart(Model model, Usuario user) {
+	public String logart(Model model, Usuario user, HttpSession session) {
 		
-		if(userDao.logar(user)){
+		if(userDao.existeUsuario(user)){
+			session.setAttribute("usuarioLogado", user);
 			return "template/home";
 		}else{
-			return "template/index";
+			return "template/erro";
 		}
 	}
 	

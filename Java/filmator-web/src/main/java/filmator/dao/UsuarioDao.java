@@ -29,11 +29,26 @@ public class UsuarioDao {
 				false);
 		}
 		
-		public boolean logar(Usuario user){
+		public boolean existeUsuario(Usuario user){
+			Usuario usuario = new Usuario();
+			List<Usuario> banco = jdbcTemplate.query("select * from usuario where usuario = ?", (ResultSet rs, int rownum ) -> {	
+				usuario.setIdUsuario(rs.getInt("idusuario"));
+				usuario.setUsuario(rs.getString("usuario"));
+				usuario.setSenha(rs.getString("senha"));
+				usuario.setEhAdmin(rs.getBoolean("ehAdmin"));
+				
+				return usuario;
+				
+			}, user.getUsuario());	
 			
-			List<Usuario> banco = jdbcTemplate.query("select * from usuario where usuario = ?", user.getUsuario());
-			
-			if()
+			if(user.getSenha().equals(usuario.getSenha())){
+				
+				return true;
+			}else{
+				
+				return false;
+				
+			}
 		}
 }
  
