@@ -2,6 +2,7 @@ package filmator.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,16 +46,18 @@ public class IndexController {
 		
 		if(existe != null){
 			
-			System.out.println(existe.getEhAdmin());
-			
 			session.setAttribute("usuarioLogado", existe);
-			//session.setAttribute("ehAdmin", existe.getEhAdmin());
-			return "template/home";
+			return "redirect:/template/home";
 		}else{
 			return "template/erro";
 		}
 	}
 	
+	@RequestMapping(value = "/template/logout", method = RequestMethod.GET)
+	public String logout(Model model, HttpSession session ) {
+		session.invalidate();
+		return "redirect:/template/index";
+	}
 	
 	
 }

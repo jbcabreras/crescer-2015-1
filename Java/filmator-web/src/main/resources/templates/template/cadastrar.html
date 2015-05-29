@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-
+   {{>template/inclui-todas-pgs}}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,6 +67,9 @@
                         <a href="/template/cadastrar">Cadastrar</a>
                     </li>
                     {{/usuarioLogado.ehAdmin}}
+                    <li class="page-scroll">
+                        <a href="/template/logout" >Logout <span class="glyphicon glyphicon-log-out margin-left" aria-hidden="true"></span></a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -133,7 +136,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button name="bIncluir" class="btn btn-success btn-lg">Inserir Filme 
+                                <button name="bIncluir" class="btn btn-success btn-lg">Salvar 
                                     <span class="glyphicon glyphicon-plus margin-left" aria-hidden="true"></span> 
                                 </button>                                
                             </div>

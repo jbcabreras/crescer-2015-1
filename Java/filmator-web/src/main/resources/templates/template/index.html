@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
+   {{>template/inclui-todas-pgs}}
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>Filmator Login</title>
@@ -30,7 +31,8 @@
               <input type="password" name="senha" class="form-control input-lg" required placeholder="Password">
             </div>
             <div class="form-group">
-              <button class="btn btn-primary btn-lg btn-block">ENTRAR</button>
+              <button class="btn btn-primary btn-lg btn-block">ENTRAR<span class="glyphicon glyphicon-log-in"
+              style="margin-left:20px;" aria-hidden="true"></span></button>
               <!-- <span class="pull-left"><a href="/template/registrar">REGISTRAR</a> -->
             </div>
           </form>

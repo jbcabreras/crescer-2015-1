@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-
+   {{>template/inclui-todas-pgs}}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,6 +70,9 @@
                         <a href="/template/cadastrar">Cadastrar</a>
                     </li>
                     {{/usuarioLogado.ehAdmin}}
+                    <li class="page-scroll">
+                        <a href="/template/logout" >Logout <span class="glyphicon glyphicon-log-out margin-left" aria-hidden="true"></span></a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -91,6 +94,14 @@
         <!-- /.row -->
 
         <!-- Project One -->
+        {{^buscaFilmes}}
+        <div class="row text-center">
+            <div class="col-md-12 ">
+                <h1 class="erro">Filme não localizado!</h1><br>
+                <a class="btn btn-success " href="/template/buscar" role="button"><h4>Voltar para a busca</h4> </span></a>
+            </div>
+        </div>
+        {{/buscaFilmes}}
         {{#buscaFilmes}}
         <div class="row espaco">
             <div class="col-md-4">
