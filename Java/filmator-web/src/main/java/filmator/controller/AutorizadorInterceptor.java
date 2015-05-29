@@ -1,3 +1,6 @@
+// define quais paginas o usuario podera acessar sem estar logado no primeiro if
+
+
 package filmator.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,14 +11,20 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
 	  @Override
-	  public boolean preHandle(HttpServletRequest request,
-	      HttpServletResponse response,
+	  public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 	      Object controller) throws Exception {
 
 		  String uri = request.getRequestURI();
+		  
+		  // ---> AQUI
+		  
 	      if(uri.endsWith("index") || 
 	          uri.endsWith("registrar") || 
-	              uri.contains("static")){
+	          uri.endsWith("erro") || 
+	          uri.endsWith("sucesso") || 
+	          uri.endsWith("logar") || 
+	          uri.contains("resources")){
+	    	  
 	        return true;
 	      }
 		  

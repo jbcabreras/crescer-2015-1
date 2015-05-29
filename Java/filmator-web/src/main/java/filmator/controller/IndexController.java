@@ -41,8 +41,14 @@ public class IndexController {
 	@RequestMapping(value = "/template/logar", method = RequestMethod.POST)
 	public String logart(Model model, Usuario user, HttpSession session) {
 		
-		if(userDao.existeUsuario(user)){
-			session.setAttribute("usuarioLogado", user);
+		Usuario existe = userDao.consultaUsuario(user);
+		
+		if(existe != null){
+			
+			System.out.println(existe.getEhAdmin());
+			
+			session.setAttribute("usuarioLogado", existe);
+			//session.setAttribute("ehAdmin", existe.getEhAdmin());
 			return "template/home";
 		}else{
 			return "template/erro";

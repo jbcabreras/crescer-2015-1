@@ -25,12 +25,15 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public boolean isEhAdmin() {
+	public boolean getEhAdmin() {
 		return ehAdmin;
 	}
 	public void setEhAdmin(boolean ehAdmin) {
 		this.ehAdmin = ehAdmin;
 	}
 	
+	public boolean isEhAdmin() {
+		return ehAdmin;
+	}
 	
 }

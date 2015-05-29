@@ -29,9 +29,10 @@ public class UsuarioDao {
 				false);
 		}
 		
-		public boolean existeUsuario(Usuario user){
-			Usuario usuario = new Usuario();
+		public Usuario consultaUsuario(Usuario user){
+			
 			List<Usuario> banco = jdbcTemplate.query("select * from usuario where usuario = ?", (ResultSet rs, int rownum ) -> {	
+				Usuario usuario = new Usuario();
 				usuario.setIdUsuario(rs.getInt("idusuario"));
 				usuario.setUsuario(rs.getString("usuario"));
 				usuario.setSenha(rs.getString("senha"));
@@ -41,14 +42,23 @@ public class UsuarioDao {
 				
 			}, user.getUsuario());	
 			
-			if(user.getSenha().equals(usuario.getSenha())){
-				
-				return true;
+			if(banco.isEmpty()){
+				return null;
 			}else{
 				
-				return false;
+				Usuario userBanco = banco.get(0);
 				
+				if(user.getSenha().equals(userBanco.getSenha())){
+					
+					return userBanco;
+					
+				}else{
+					
+					return null;
+					
+				}
 			}
+			
 		}
 }
  

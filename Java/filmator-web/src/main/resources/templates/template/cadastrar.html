@@ -62,9 +62,11 @@
                     <li class="page-scroll">
                         <a href="/template/buscar">Buscar</a>
                     </li>
+                    {{#usuarioLogado.ehAdmin}}
                     <li class="page-scroll">
                         <a href="/template/cadastrar">Cadastrar</a>
                     </li>
+                    {{/usuarioLogado.ehAdmin}}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
