@@ -117,8 +117,8 @@ public class FilmeDao {
 				
 			}, genero.toUpperCase());	
 		}
-		
-		
+
+
 		
 	
 //	public List<Filme> buscaTodosFilmes(){

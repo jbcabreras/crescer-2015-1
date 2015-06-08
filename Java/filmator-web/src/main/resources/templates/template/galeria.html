@@ -111,6 +111,21 @@
             </div>
             <div class="col-md-8">
                 <h3>{{nome}} ({{ano}})</h3>
+
+                <h4>Avaliação:</h4>
+                <form style="display:none" idFilme="{{idFilme}}" title="Average Rating: " class="rating">
+                    
+                    <select value="{{idFilme}}" name="{{usuarioLogado.idUsuario}}" class="avl">
+                        <option  value="1">1</option>
+                        <option  value="2">2</option>
+                        <option  value="3">3</option>
+                        <option  value="4">4</option>
+                        <option  value="5">5</option>
+                    </select>
+                   
+                </form><br>
+
+
                 <h4>Gênero: {{genero.nomeGenero}}</h4>
                 <p>{{sinopse}}</p>
                 
@@ -189,10 +204,18 @@
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+   
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script src="js/freelancer.js"></script>   
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.rating.js"></script>
+    <script type="text/javascript">
+        jQuery(function(){
+            jQuery('form.rating').rating();
+        });
+    </script>
 </body>
 
 </html>
